@@ -4,49 +4,44 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import se331.rest.dao.EventDao;
-import se331.rest.dao.OrganizerDao;
+import se331.rest.dao.PeopleDao;
+import se331.rest.dao.VaccineDao;
 import se331.rest.entity.People;
-import se331.rest.entity.Doctor;
 
 import javax.transaction.Transactional;
 
 @Service
 public class PeopleServiceImpl implements PeopleService {
     @Autowired
-    EventDao eventDao;
+    PeopleDao peopleDao;
 
     @Autowired
-    OrganizerDao organizerDao;
+    VaccineDao vaccineDao;
 
     @Override
     public Integer getPeopleSize() {
-        return eventDao.getPeopleSize();
+        return peopleDao.getPeopleSize();
     }
 
     @Override
     public Page<People> getPeoples(Integer pageSize, Integer page) {
-        return eventDao.getPeoples(pageSize, page);
+        return peopleDao.getPeoples(pageSize, page);
     }
 
     @Override
-    public People getEvent(Long id) {
-        return eventDao.getEvents(id);
+    public People getPeople(Long id) {
+        return peopleDao.getEvents(id);
     }
 
     @Override
     @Transactional
     public People save(People people) {
-        Doctor doctor = organizerDao.findById(people.getDoctor().getId()).orElse(null);
-        people.setDoctor(doctor);
-        doctor.getOwnPeople().add(people);
-
-        return eventDao.save(people);
+        return peopleDao.save(people);
     }
 
     @Override
-    public Page<People> getEvents(String title, Pageable pageable) {
-        return eventDao.getEvents(title,pageable);
+    public Page<People> getPeoples(String title, Pageable pageable) {
+        return peopleDao.getEvents(title,pageable);
     }
 }
 

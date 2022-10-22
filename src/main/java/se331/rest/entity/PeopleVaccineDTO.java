@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PeopleHasDoctorDTO {
+public class PeopleVaccineDTO {
     Long id;
     String name;// name of doctor
 }

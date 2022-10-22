@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import se331.rest.entity.Doctor;
+import se331.rest.entity.Vaccine;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -63,6 +63,6 @@ public class User {
     private List<Authority> authorities = new ArrayList<>();
 
     @OneToOne
-    Doctor doctor;
+    Vaccine vaccine;
 
 }

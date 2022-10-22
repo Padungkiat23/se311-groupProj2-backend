@@ -4,7 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import se331.rest.entity.People;
 
-public interface EventDao {
+public interface PeopleDao {
     Integer getPeopleSize();
     Page<People> getPeoples(Integer pageSize, Integer page);
     People getEvents(Long id);

@@ -19,7 +19,7 @@ public class PeopleDTO {
     String hometown;
 
     Boolean vaccinated;
-    PeopleHasDoctorDTO doctor;
+    PeopleVaccineDTO vaccineDTO;
     List<String> imageUrls;
 }
 

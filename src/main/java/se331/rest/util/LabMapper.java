@@ -1,7 +1,6 @@
 package se331.rest.util;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import se331.rest.entity.*;
 import se331.rest.security.entity.User;
@@ -14,16 +13,16 @@ import java.util.stream.Collectors;
 public interface LabMapper {
     LabMapper INSTANCE = Mappers.getMapper(LabMapper.class);
 
-    PeopleDTO getEventDto(People people);
+    PeopleDTO getPeopleDto(People people);
 
     UserDTO getUserDTO(User user);
-    List<PeopleDTO> getEventDto(List<People> people);
+    List<PeopleDTO> getPeopleDto(List<People> people);
 
-    DoctorDTO getOrganizerDTO(Doctor doctor);
+    VaccineDTO getVaccineDTO(Vaccine vaccine);
 
-    List<DoctorDTO> getOrganizerDTO(List<Doctor> doctors);
+    List<VaccineDTO> getVaccineDTO(List<Vaccine> vaccines);
 
-    @Mapping(target = "authorities", expression = "java(organizer.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
-    DoctorAuthDTO getOrganizerAuthDTO(Doctor doctor);
+//    @Mapping(target = "authorities", expression = "java(organizer.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
+//    DoctorAuthDTO getOrganizerAuthDTO(Vaccine vaccine);
 
 }

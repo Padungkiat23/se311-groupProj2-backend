@@ -5,19 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DoctorOwnPeopleDTO {
+public class VaccineDTO {
     Long id;
     String name;
-    String surname;
-    Long age;
-    String hometown;
-    Boolean vaccinated;
-    List<Vaccine> vaccines;
+    //List<DoctorOwnPeopleDTO> ownPeople = new ArrayList<>();
 }
 

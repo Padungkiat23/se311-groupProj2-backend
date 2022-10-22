@@ -9,9 +9,9 @@ public interface PeopleService {
 
     Page<People> getPeoples(Integer pageSize, Integer page);
 
-    People getEvent(Long id);
+    People getPeople(Long id);
 
     People save(People people);
-    Page<People> getEvents(String title, Pageable pageable);
+    Page<People> getPeoples(String title, Pageable pageable);
 
 }

@@ -4,6 +4,7 @@ package se331.rest.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -20,14 +21,15 @@ public class People {
     String surname;
     Long age;
     String hometown;
-
+    String vac_date;
     Boolean vaccinated;
     // one person can have many doctor
-    @ManyToOne
-    Doctor doctor;
-    // entity vaccine
-    @ManyToMany(mappedBy = "peopleVaccinated")
-    List<Vaccine> vaccines;
+    @OneToMany
+    @Builder.Default
+    List<Vaccine> vaccines = new ArrayList<>();
+    // map in participant
+    @ManyToMany(mappedBy = "gotVaccinated")
+    List<Vaccine> participants;
     // people images
     @ElementCollection
     List<String> imageUrls;
