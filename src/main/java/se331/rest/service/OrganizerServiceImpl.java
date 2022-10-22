@@ -6,7 +6,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import se331.rest.dao.OrganizerDao;
-import se331.rest.entity.Organizer;
+import se331.rest.entity.Doctor;
 
 import java.util.List;
 
@@ -15,12 +15,12 @@ public class OrganizerServiceImpl implements OrganizerService{
     @Autowired
     OrganizerDao organizerDao;
     @Override
-    public List<Organizer> getAllOrganizer() {
+    public List<Doctor> getAllOrganizer() {
                return organizerDao.getOrganizer(Pageable.unpaged()).getContent();
            }
 
            @Override
-    public Page<Organizer> getOrganizer(Integer page, Integer pageSize) {
+    public Page<Doctor> getOrganizer(Integer page, Integer pageSize) {
               return organizerDao.getOrganizer(PageRequest.of(page,pageSize));
           }
 }

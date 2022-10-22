@@ -15,8 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import se331.rest.entity.Event;
-import se331.rest.entity.Organizer;
+import se331.rest.entity.Doctor;
 import se331.rest.repository.OrganizerRepository;
 import se331.rest.security.entity.Authority;
 import se331.rest.security.entity.AuthorityName;
@@ -81,8 +80,8 @@ public class AuthenticationRestController {
         Map result = new HashMap();
         result.put("token", token);
         User user = userRepository.findById(((JwtUser) userDetails).getId()).orElse(null);
-        if (user.getOrganizer() != null) {
-            result.put("user", LabMapper.INSTANCE.getOrganizerAuthDTO( user.getOrganizer()));
+        if (user.getDoctor() != null) {
+            result.put("user", LabMapper.INSTANCE.getOrganizerAuthDTO( user.getDoctor()));
         }
 
         return ResponseEntity.ok(result);
@@ -106,11 +105,11 @@ public class AuthenticationRestController {
         user2.getAuthorities().add(authAdmin);
         userRepository.save(user2);
 
-        Organizer organizer = Organizer.builder().name(user.getUsername()).build();
-        organizerRepository.save(organizer);
+        Doctor doctor = Doctor.builder().name(user.getUsername()).build();
+        organizerRepository.save(doctor);
 
-        organizer.setUser(user2);
-        user2.setOrganizer(organizer);
+        doctor.setUser(user2);
+        user2.setDoctor(doctor);
 
         userService.save(user2);
         return ResponseEntity.ok(LabMapper.INSTANCE.getUserDTO(user2));

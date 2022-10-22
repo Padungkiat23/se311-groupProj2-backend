@@ -9,21 +9,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import se331.rest.entity.Event;
-import se331.rest.service.EventService;
+import se331.rest.entity.People;
+import se331.rest.service.PeopleService;
 import se331.rest.util.LabMapper;
-
-import javax.annotation.PostConstruct;
-import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class EventController {
 
 
     @Autowired
-    EventService eventService;
+    PeopleService peopleService;
 
     @GetMapping("event")
     public ResponseEntity<?> getEventLists(@RequestParam(value = "_limit", required = false) Integer perPage
@@ -31,11 +26,11 @@ public class EventController {
             , @RequestParam(value = "title", required = false) String title) {
         perPage = perPage == null ? 3 : perPage;
         page = page == null ? 1 : page;
-        Page<Event> pageOutput;
+        Page<People> pageOutput;
         if (title == null) {
-            pageOutput = eventService.getEvents(perPage, page);
+            pageOutput = peopleService.getPeoples(perPage, page);
         } else {
-            pageOutput = eventService.getEvents(title, PageRequest.of(page - 1, perPage));
+            pageOutput = peopleService.getEvents(title, PageRequest.of(page - 1, perPage));
         }
         HttpHeaders responseHeader = new HttpHeaders();
 
@@ -47,7 +42,7 @@ public class EventController {
 
     @GetMapping("event/{id}")
     public ResponseEntity<?> getEvent(@PathVariable("id") Long id) {
-        Event output = eventService.getEvent(id);
+        People output = peopleService.getEvent(id);
         if (output != null) {
             return ResponseEntity.ok(LabMapper.INSTANCE.getEventDto(output));
         } else {
@@ -56,8 +51,8 @@ public class EventController {
     }
 
     @PostMapping("/event")
-    public ResponseEntity<?> addEvent(@RequestBody Event event) {
-        Event output = eventService.save(event);
+    public ResponseEntity<?> addEvent(@RequestBody People people) {
+        People output = peopleService.save(people);
         return ResponseEntity.ok(LabMapper.INSTANCE.getEventDto(output));
     }
 

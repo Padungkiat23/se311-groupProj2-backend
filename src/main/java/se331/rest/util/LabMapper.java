@@ -14,16 +14,16 @@ import java.util.stream.Collectors;
 public interface LabMapper {
     LabMapper INSTANCE = Mappers.getMapper(LabMapper.class);
 
-    EventDTO getEventDto(Event event);
+    PeopleDTO getEventDto(People people);
 
     UserDTO getUserDTO(User user);
-    List<EventDTO> getEventDto(List<Event> events);
+    List<PeopleDTO> getEventDto(List<People> people);
 
-    OrganizerDTO getOrganizerDTO(Organizer organizer);
+    DoctorDTO getOrganizerDTO(Doctor doctor);
 
-    List<OrganizerDTO> getOrganizerDTO(List<Organizer> organizers);
+    List<DoctorDTO> getOrganizerDTO(List<Doctor> doctors);
 
     @Mapping(target = "authorities", expression = "java(organizer.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
-    OrganizerAuthDTO getOrganizerAuthDTO(Organizer organizer);
+    DoctorAuthDTO getOrganizerAuthDTO(Doctor doctor);
 
 }

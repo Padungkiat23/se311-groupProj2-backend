@@ -12,9 +12,9 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class  OrganizerDTO {
+public class DoctorDTO {
     Long id;
     String name;
-    List<OrganizerOwnEventsDTO> ownEvents = new ArrayList<>();
+    List<DoctorOwnPeopleDTO> ownPeople = new ArrayList<>();
 }
 

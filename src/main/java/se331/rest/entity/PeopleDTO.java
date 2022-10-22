@@ -5,12 +5,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventOrganizerDTO {
+public class PeopleDTO {
     Long id;
     String name;
+    String surname;
+    Long age;
+    String hometown;
+
+    Boolean vaccinated;
+    PeopleHasDoctorDTO doctor;
+    List<String> imageUrls;
 }
 

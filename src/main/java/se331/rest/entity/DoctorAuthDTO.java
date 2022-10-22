@@ -11,15 +11,8 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrganizerOwnEventsDTO {
+public class DoctorAuthDTO {
     Long id;
-    String category;
-    String title;
-    String description;
-    String location;
-    String date;
-    String time;
-    Boolean petAllowed;
-    List<Participant> participants;
+    String name;
+    List<String> authorities;
 }
-

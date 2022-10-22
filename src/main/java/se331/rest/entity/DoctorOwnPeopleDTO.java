@@ -11,16 +11,13 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventDTO {
+public class DoctorOwnPeopleDTO {
     Long id;
-    String category;
-    String title;
-    String description;
-    String location;
-    String date;
-    String time;
-    Boolean petAllowed;
-    EventOrganizerDTO organizer;
-    List<String> imageUrls;
+    String name;
+    String surname;
+    Long age;
+    String hometown;
+    Boolean vaccinated;
+    List<Vaccine> vaccines;
 }
 

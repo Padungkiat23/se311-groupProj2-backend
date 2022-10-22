@@ -6,8 +6,8 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import se331.rest.entity.Event;
-import se331.rest.entity.Organizer;
+import se331.rest.entity.People;
+import se331.rest.entity.Doctor;
 import se331.rest.repository.EventRepository;
 import se331.rest.repository.OrganizerRepository;
 import se331.rest.security.entity.Authority;
@@ -35,15 +35,15 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     @Override
     @Transactional
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-        Organizer org1, org2, org3;
-        org1 = organizerRepository.save(Organizer.builder()
+        Doctor org1, org2, org3;
+        org1 = organizerRepository.save(Doctor.builder()
                 .name("CAMT").build());
-        org2 = organizerRepository.save(Organizer.builder()
+        org2 = organizerRepository.save(Doctor.builder()
                 .name("CMU").build());
-        org3 = organizerRepository.save(Organizer.builder()
+        org3 = organizerRepository.save(Doctor.builder()
                 .name("ChiangMai").build());
-        Event tempEvent = null;
-        tempEvent = eventRepository.save(Event.builder()
+        People tempPeople = null;
+        tempPeople = eventRepository.save(People.builder()
                 .category("Academic")
                 .title("Midterm Exam")
                 .description("A time for taking the exam")
@@ -53,8 +53,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .petAllowed(false)
                 .organizer(org1)
                 .build());
-        org1.getOwnEvents().add(tempEvent);
-        tempEvent = eventRepository.save(Event.builder()
+        org1.getOwnPeople().add(tempPeople);
+        tempPeople = eventRepository.save(People.builder()
                 .category("Academic")
                 .title("Commencement Day")
                 .description("A time for celebration")
@@ -64,8 +64,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .petAllowed(false)
                 .organizer(org1)
                 .build());
-        org1.getOwnEvents().add(tempEvent);
-        tempEvent = eventRepository.save(Event.builder()
+        org1.getOwnPeople().add(tempPeople);
+        tempPeople = eventRepository.save(People.builder()
                 .category("Cultural")
                 .title("Loy Krathong")
                 .description("A time for Krathong")
@@ -75,8 +75,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .organizer(org2)
                 .petAllowed(false)
                 .build());
-        org2.getOwnEvents().add(tempEvent);
-        tempEvent = eventRepository.save(Event.builder()
+        org2.getOwnPeople().add(tempPeople);
+        tempPeople = eventRepository.save(People.builder()
                 .category("Cultural")
                 .title("Songkran")
                 .description("Let's Play Water")
@@ -86,14 +86,14 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .petAllowed(true)
                 .organizer(org3)
                 .build());
-        org3.getOwnEvents().add(tempEvent);
+        org3.getOwnPeople().add(tempPeople);
         addUser();
         org1.setUser(user1);
-        user1.setOrganizer(org1);
+        user1.setDoctor(org1);
         org2.setUser(user2);
-        user2.setOrganizer(org2);
+        user2.setDoctor(org2);
         org3.setUser(user3);
-        user3.setOrganizer(org3);
+        user3.setDoctor(org3);
     }
 
     User user1,user2,user3;

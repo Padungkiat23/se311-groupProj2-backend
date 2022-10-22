@@ -11,25 +11,26 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Event {
+public class People {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Exclude
     Long id;
-    String category;
-    String title;
-    String description;
-    String location;
-    String date;
-    String time;
-    Boolean petAllowed;
+    String name;
+    String surname;
+    Long age;
+    String hometown;
+
+    Boolean vaccinated;
+    // one person can have many doctor
     @ManyToOne
-    Organizer organizer;
-    @ManyToMany(mappedBy = "eventHistory")
-    List<Participant> participants;
+    Doctor doctor;
+    // entity vaccine
+    @ManyToMany(mappedBy = "peopleVaccinated")
+    List<Vaccine> vaccines;
+    // people images
     @ElementCollection
     List<String> imageUrls;
-
 
 }
 
