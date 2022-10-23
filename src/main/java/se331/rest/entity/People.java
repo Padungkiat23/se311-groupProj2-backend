@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @Data
@@ -26,9 +27,15 @@ public class People {
 
     @OneToMany
     @Builder.Default
+    List<Doctor> doc_name = new ArrayList<>();
+//    @ManyToOne
+//    Vaccine vac_get;
+    @OneToMany
+    @Builder.Default
     List<Vaccine> vaccines = new ArrayList<>();
     // map in participant
-    @ManyToMany(mappedBy = "gotVaccinated")
+//    @ManyToMany(mappedBy = "gotVaccinated")
+    @ManyToMany
     List<Vaccine> participants;
     // people images
     @ElementCollection

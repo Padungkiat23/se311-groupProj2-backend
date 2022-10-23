@@ -17,7 +17,6 @@ public class Doctor {
     @EqualsAndHashCode.Exclude
     Long id;
     String name;
-    String email;
     String comment;
 }
 

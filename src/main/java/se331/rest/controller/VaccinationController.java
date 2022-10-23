@@ -12,8 +12,8 @@ public class VaccinationController {
     @Autowired
     VaccineService vaccineService;
 
-    @GetMapping("/vaccines")
-    ResponseEntity<?> getOrganizers() {
+    @GetMapping("/vaccine")
+    ResponseEntity<?> getVaccines() {
         return ResponseEntity.ok(LabMapper.INSTANCE.getVaccineDTO(vaccineService.getAllVaccine()));
     }
 }

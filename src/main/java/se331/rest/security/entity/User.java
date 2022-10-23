@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import se331.rest.entity.Doctor;
 import se331.rest.entity.Vaccine;
 
 import javax.persistence.*;
@@ -62,7 +63,10 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Authority> authorities = new ArrayList<>();
 
-    @OneToOne
-    Vaccine vaccine;
+//    @OneToOne
+//    Vaccine vaccine;
+
+//    @OneToOne
+//    Doctor doctor;
 
 }
