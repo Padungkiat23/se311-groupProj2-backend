@@ -1,6 +1,7 @@
 package se331.rest.entity;
 
 import lombok.*;
+import se331.rest.security.entity.User;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,7 +17,7 @@ public class Doctor {
     @EqualsAndHashCode.Exclude
     Long id;
     String name;
-    String date;
-    //vaccine inject in people
+    String email;
+    String comment;
 }
 

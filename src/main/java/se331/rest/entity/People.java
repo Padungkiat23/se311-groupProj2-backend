@@ -23,7 +23,7 @@ public class People {
     String hometown;
     String vac_date;
     Boolean vaccinated;
-    // one person can have many doctor
+
     @OneToMany
     @Builder.Default
     List<Vaccine> vaccines = new ArrayList<>();

@@ -20,10 +20,5 @@ public class Vaccine {
     String name;
     @ManyToMany
     List<People> gotVaccinated;
-   // @ManyToOne(mappedBy = "vaccines")
-//    @Builder.Default
-//    List<People> ownPeople = new ArrayList<>();
-//    @OneToOne
-//    User user;
 }
 
