@@ -11,9 +11,8 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PeopleVaccineDTO {
+public class DoctorOwnPeopleDTO {
     Long id;
-    String name;// name of doctor
-    List<Participant> participantList;
+    String name;
+    List<Participant> participants;
 }
-

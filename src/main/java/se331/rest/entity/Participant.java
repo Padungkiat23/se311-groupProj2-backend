@@ -1,10 +1,8 @@
 package se331.rest.entity;
 
 import lombok.*;
-import se331.rest.security.entity.User;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -12,11 +10,15 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Vaccine {
+public class Participant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Exclude
     Long id;
     String name;
+    String telNo;
+    @ManyToMany
+    List<People> peopleListHistory;
+    @ManyToMany
+    List<Vaccine> vaccineListHistory;
 }
-
