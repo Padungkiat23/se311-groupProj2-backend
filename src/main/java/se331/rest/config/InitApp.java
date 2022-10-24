@@ -42,28 +42,159 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         Doctor doc1, doc2,doc3;
         doc1 = doctorRepository.save(Doctor.builder().name("Dr.Smith Henry").build());
         doc2 = doctorRepository.save(Doctor.builder().name("Dr.Caitlyn Dow").build());
+        Vaccine vaccine = null;
 
         // Vaccine configuration
-        Vaccine vac1, vac2, vac3;
-        vac1 = vaccinatedRepository.save((Vaccine.builder()
-                .name("Pfizer").build()));
-        vac2 = vaccinatedRepository.save((Vaccine.builder()
-                .name("Moderna").build()));
-
-        vac3 = vaccinatedRepository.save((Vaccine.builder()
-                .name("AstraZeneca").build()));
+//        Vaccine vac1, vac2, vac3;
+//        vac1 = vaccinatedRepository.save((Vaccine.builder()
+//                .name("Pfizer").build()));
+//        vac2 = vaccinatedRepository.save((Vaccine.builder()
+//                .name("Moderna").build()));
+//        vac3 = vaccinatedRepository.save((Vaccine.builder()
+//                .name("AstraZeneca").build()));
 
         People tempPeople = null;
+        tempPeople = peopleRepository.save(People.builder()
+                .name("Kiki")
+                .surname("Eazyi")
+                .age(22L)
+                .hometown("Bandon")
+                .vaccinated(true)
+                .build());
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("January 22, 2021");
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("March 22, 2021");
+
+        tempPeople = peopleRepository.save(People.builder()
+                .name("Payrai")
+                .surname("Najar")
+                .age(23L)
+                .hometown("7Saint Charles")
+                .vaccinated(true)
+                .build());
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("January 22, 2021");
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").build()));
+
+
+        tempPeople = peopleRepository.save(People.builder()
+                .name("Vasaz")
+                .surname("Gizar")
+                .age(21L)
+                .hometown("Ionian river")
+                .vaccinated(true)
+                .build());
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("January 22, 2021");
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("March 22, 2021");
+
+        tempPeople = peopleRepository.save(People.builder()
+                .name("Zed")
+                .surname("Shadow")
+                .age(25L)
+                .hometown("Bearer Iron")
+                .vaccinated(true)
+                .build());
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("January 22, 2021");
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("March 22, 2021");
+
+        tempPeople = peopleRepository.save(People.builder()
+                .name("Keaw")
+                .surname("Sai Nam")
+                .age(26L)
+                .hometown("Jaicum Furniture")
+                .vaccinated(true)
+                .build());
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("January 22, 2021");
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("March 22, 2021");
+
+        tempPeople = peopleRepository.save(People.builder()
+                .name("Affrican")
+                .surname("Daze")
+                .age(26L)
+                .hometown("GG Ionian Stair")
+                .vaccinated(true)
+                .build());
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("January 22, 2021");
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("March 22, 2021");
+
+        tempPeople = peopleRepository.save(People.builder()
+                .name("Zen")
+                .surname("Batsu")
+                .age(26L)
+                .hometown("Mak kum jai")
+                .vaccinated(true)
+                .build());
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("January 22, 2021");
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("March 22, 2021");
+
+        tempPeople = peopleRepository.save(People.builder()
+                .name("Maingkhum")
+                .surname("Sapanjai")
+                .age(26L)
+                .hometown("Ban don pha phi")
+                .vaccinated(true)
+                .build());
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("AstraZeneca").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("January 22, 2021");
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").build()));
+                tempPeople.getVaccines().add(vaccine);
+                tempPeople.setVac_date("March 22, 2021");
+
         tempPeople = peopleRepository.save(People.builder()
                 .name("Vishal")
                 .surname("Wilkins")
                 .age(21L)
-                .hometown("7263 Airport Street Saint Charles, IL 60174")
+                .hometown("Airport Street")
                 .vaccinated(true)
                 .build());
-                tempPeople.getVaccines().add(vac1);
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("AstraZeneca").build()));
+                tempPeople.getVaccines().add(vaccine);
                 tempPeople.setVac_date("January 22, 2021");
-                tempPeople.getVaccines().add(vac2);
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("AstraZeneca").build()));
+                tempPeople.getVaccines().add(vaccine);
                 tempPeople.setVac_date("March 22, 2021");
 
                 addUser();

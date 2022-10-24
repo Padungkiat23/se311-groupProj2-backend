@@ -4,6 +4,7 @@ import lombok.*;
 import se331.rest.security.entity.User;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 @Data
 @Builder
@@ -17,7 +18,11 @@ public class Doctor {
     @EqualsAndHashCode.Exclude
     Long id;
     String name;
-    String email;
-    String comment;
+
+    @OneToMany(mappedBy = "doctor")
+    List<People> ownPeople = new ArrayList<>();
+
+    @OneToOne(mappedBy = "doctor")
+    User user;
 }
 

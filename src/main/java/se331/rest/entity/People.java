@@ -2,6 +2,7 @@ package se331.rest.entity;
 
 
 import lombok.*;
+import se331.rest.security.entity.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -24,15 +25,21 @@ public class People {
     String vac_date;
     Boolean vaccinated;
 
+    @ManyToOne
+    Doctor doctor;
+
     @OneToMany
     @Builder.Default
     List<Vaccine> vaccines = new ArrayList<>();
     // map in participant
-    @ManyToMany(mappedBy = "gotVaccinated")
-    List<Vaccine> participants;
+//    @ManyToMany(mappedBy = "gotVaccinated")
+//    List<Vaccine> participants;
     // people images
     @ElementCollection
     List<String> imageUrls;
+
+    @OneToOne(mappedBy = "people")
+    User user;
 
 }
 
