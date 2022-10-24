@@ -131,4 +131,28 @@ public class AuthenticationRestController {
     }
 
 
+    @PostMapping("${jwt.route.authentication.path}")
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException {
+
+        // Perform the security
+        final Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        authenticationRequest.getUsername(),
+                        authenticationRequest.getPassword()
+                )
+        );
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        // Reload password post-security so we can generate token
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+        final String token = jwtTokenUtil.generateToken(userDetails);
+        Map result = new HashMap();
+        result.put("token", token);
+        User user = userRepository.findById(((JwtUser)
+                userDetails).getId()).orElse(null);
+//        if (user.getDoctor() != null) {
+//            result.put("user", LabMapper.INSTANCE.getDoctorAuthDTO(user.getDoctor()));
+//        }
+        return ResponseEntity.ok(result);
+    }
+
 }

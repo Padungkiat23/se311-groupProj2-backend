@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import se331.rest.entity.Doctor;
+import se331.rest.entity.People;
 import se331.rest.entity.Vaccine;
 
 import javax.persistence.*;
@@ -25,7 +27,7 @@ public class User {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
@@ -65,4 +67,9 @@ public class User {
     @OneToOne
     Vaccine vaccine;
 
+    @OneToOne
+    Doctor doctor;
+
+    @OneToOne
+    People people;
 }
