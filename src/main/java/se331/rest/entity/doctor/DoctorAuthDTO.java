@@ -1,4 +1,4 @@
-package se331.rest.entity;
+package se331.rest.entity.doctor;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

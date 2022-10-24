@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
-import se331.rest.entity.People;
+import se331.rest.entity.patient.People;
 import se331.rest.repository.PeopleRepository;
 
 @Profile("db")

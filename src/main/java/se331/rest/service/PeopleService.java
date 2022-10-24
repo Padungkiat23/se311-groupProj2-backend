@@ -2,7 +2,7 @@ package se331.rest.service;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import se331.rest.entity.People;
+import se331.rest.entity.patient.People;
 
 public interface PeopleService {
     Integer getPeopleSize();

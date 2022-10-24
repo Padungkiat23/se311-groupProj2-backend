@@ -1,4 +1,4 @@
-package se331.rest.entity;
+package se331.rest.entity.vaccine;
 
 import lombok.*;
 import se331.rest.security.entity.User;

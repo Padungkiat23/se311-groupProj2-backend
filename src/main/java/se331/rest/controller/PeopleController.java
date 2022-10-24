@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import se331.rest.entity.People;
+import se331.rest.entity.patient.People;
 import se331.rest.service.PeopleService;
 import se331.rest.util.LabMapper;
 

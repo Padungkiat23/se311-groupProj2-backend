@@ -1,11 +1,14 @@
-package se331.rest.entity;
+package se331.rest.entity.patient;
 
 
 import lombok.*;
+import se331.rest.entity.comment.Comment;
+import se331.rest.entity.vaccine.Vaccine;
+import se331.rest.entity.doctor.Doctor;
+import se331.rest.security.entity.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 @Data
@@ -25,19 +28,19 @@ public class People {
     String vac_date;
     Boolean vaccinated;
 
-    @OneToMany
-    @Builder.Default
-    List<Doctor> doc_name = new ArrayList<>();
-//    @ManyToOne
-//    Vaccine vac_get;
+    @ManyToOne
+    Doctor doctor;
+
+    @OneToOne(mappedBy = "patient")
+    User user;
+
     @OneToMany
     @Builder.Default
     List<Vaccine> vaccines = new ArrayList<>();
-    // map in participant
-//    @ManyToMany(mappedBy = "gotVaccinated")
-    @ManyToMany
-    List<Vaccine> participants;
-    // people images
+
+    @OneToMany(mappedBy = "comment_to", cascade = CascadeType.ALL)
+    List<Comment> doc_comment = new ArrayList<>();
+
     @ElementCollection
     List<String> imageUrls;
 

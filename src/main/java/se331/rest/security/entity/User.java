@@ -7,8 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import se331.rest.entity.Doctor;
-import se331.rest.entity.Vaccine;
+import se331.rest.entity.doctor.Doctor;
+import se331.rest.entity.patient.People;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class User {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
@@ -63,10 +63,10 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Authority> authorities = new ArrayList<>();
 
-//    @OneToOne
-//    Vaccine vaccine;
+    @OneToOne
+    private Doctor doctor;
 
-//    @OneToOne
-//    Doctor doctor;
+    @OneToOne
+    private People patient;
 
 }

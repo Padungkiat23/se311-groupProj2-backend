@@ -1,9 +1,10 @@
-package se331.rest.entity;
+package se331.rest.entity.doctor;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import se331.rest.entity.Participant;
 
 import java.util.List;
 

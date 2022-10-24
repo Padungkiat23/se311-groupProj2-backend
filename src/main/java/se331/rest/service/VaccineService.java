@@ -1,7 +1,7 @@
 package se331.rest.service;
 
 import org.springframework.data.domain.Page;
-import se331.rest.entity.Vaccine;
+import se331.rest.entity.vaccine.Vaccine;
 
 import java.util.List;
 

@@ -1,11 +1,9 @@
 package se331.rest.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import se331.rest.dao.DoctorDao;
-import se331.rest.entity.Doctor;
+import se331.rest.entity.doctor.Doctor;
 
 import java.util.List;
 

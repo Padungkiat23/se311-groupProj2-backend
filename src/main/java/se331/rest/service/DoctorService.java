@@ -1,7 +1,7 @@
 package se331.rest.service;
 
 import org.springframework.data.domain.Page;
-import se331.rest.entity.Doctor;
+import se331.rest.entity.doctor.Doctor;
 
 import java.util.List;
 

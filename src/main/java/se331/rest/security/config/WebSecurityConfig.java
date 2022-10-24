@@ -48,11 +48,13 @@ public class WebSecurityConfig {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .authorizeRequests()
                 .antMatchers("/auth/**",  "/refresh", "/register").permitAll()
-                .antMatchers(HttpMethod.GET,"/people").permitAll()
-                .antMatchers(HttpMethod.GET,"/doctor").permitAll()
-                .antMatchers(HttpMethod.GET,"/register").permitAll()
+                .antMatchers(HttpMethod.GET,"/credential","/refresh").hasAnyRole("PATIENT","DOCTOR","ADMIN")
+                .antMatchers(HttpMethod.POST,"/admin/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET,"/admin/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/doctor/**").hasRole("DOCTOR")
+                .antMatchers(HttpMethod.GET,"/doctor/**").hasRole("DOCTOR")
+                .antMatchers(HttpMethod.GET,"/people/**").hasRole("PATIENT")
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .antMatchers(HttpMethod.POST,"/people").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated();
         http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);

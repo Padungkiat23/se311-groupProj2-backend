@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import se331.rest.dao.PeopleDao;
 import se331.rest.dao.VaccineDao;
-import se331.rest.entity.People;
+import se331.rest.entity.patient.People;
 
 import javax.transaction.Transactional;
 

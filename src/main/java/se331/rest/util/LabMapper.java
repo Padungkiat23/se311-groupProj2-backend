@@ -2,7 +2,12 @@ package se331.rest.util;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import se331.rest.entity.*;
+import se331.rest.entity.doctor.Doctor;
+import se331.rest.entity.doctor.DoctorDTO;
+import se331.rest.entity.patient.People;
+import se331.rest.entity.patient.dto.PeopleDTO;
+import se331.rest.entity.vaccine.Vaccine;
+import se331.rest.entity.vaccine.dto.VaccineDTO;
 import se331.rest.security.entity.User;
 import se331.rest.security.entity.UserDTO;
 

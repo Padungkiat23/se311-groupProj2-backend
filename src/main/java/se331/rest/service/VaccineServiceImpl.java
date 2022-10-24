@@ -6,7 +6,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import se331.rest.dao.VaccineDao;
-import se331.rest.entity.Vaccine;
+import se331.rest.entity.vaccine.Vaccine;
 
 import java.util.List;
 

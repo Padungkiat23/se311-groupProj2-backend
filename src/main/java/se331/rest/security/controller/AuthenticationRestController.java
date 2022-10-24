@@ -12,25 +12,16 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import se331.rest.entity.Vaccine;
 import se331.rest.repository.VaccinatedRepository;
-import se331.rest.security.entity.Authority;
-import se331.rest.security.entity.AuthorityName;
 import se331.rest.security.entity.JwtUser;
 import se331.rest.security.entity.User;
 import se331.rest.security.repository.AuthorityRepository;
 import se331.rest.security.repository.UserRepository;
 import se331.rest.security.service.UserService;
 import se331.rest.security.util.JwtTokenUtil;
-import se331.rest.util.LabMapper;
 
 import javax.servlet.http.HttpServletRequest;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
