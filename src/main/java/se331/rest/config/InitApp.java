@@ -39,9 +39,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     @Transactional
 
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-        Doctor doc1, doc2,doc3;
-        doc1 = doctorRepository.save(Doctor.builder().name("Dr.Smith Henry").build());
-        doc2 = doctorRepository.save(Doctor.builder().name("Dr.Caitlyn Dow").build());
+        Doctor doctor = null;
+        doctor = doctorRepository.save(Doctor.builder().name("Dr.Smith Henry").build());
         Vaccine vaccine = null;
         People tempPeople = null;
         tempPeople = peopleRepository.save(People.builder()

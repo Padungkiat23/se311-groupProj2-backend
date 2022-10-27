@@ -149,9 +149,9 @@ public class AuthenticationRestController {
         result.put("token", token);
         User user = userRepository.findById(((JwtUser)
                 userDetails).getId()).orElse(null);
-//        if (user.getDoctor() != null) {
-//            result.put("user", LabMapper.INSTANCE.getDoctorAuthDTO(user.getDoctor()));
-//        }
+        if (user.getDoctor() != null) {
+            result.put("user", LabMapper.INSTANCE.getDoctorAuthDTO(user.getDoctor()));
+        }
         return ResponseEntity.ok(result);
     }
 
