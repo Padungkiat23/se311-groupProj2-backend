@@ -39,20 +39,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     @Transactional
 
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-        Doctor doc1, doc2,doc3;
-        doc1 = doctorRepository.save(Doctor.builder().name("Dr.Smith Henry").build());
-        doc2 = doctorRepository.save(Doctor.builder().name("Dr.Caitlyn Dow").build());
+        Doctor doctor = null;
+        doctor = doctorRepository.save(Doctor.builder().name("Dr.Smith Henry").build());
         Vaccine vaccine = null;
-
-        // Vaccine configuration
-//        Vaccine vac1, vac2, vac3;
-//        vac1 = vaccinatedRepository.save((Vaccine.builder()
-//                .name("Pfizer").build()));
-//        vac2 = vaccinatedRepository.save((Vaccine.builder()
-//                .name("Moderna").build()));
-//        vac3 = vaccinatedRepository.save((Vaccine.builder()
-//                .name("AstraZeneca").build()));
-
         People tempPeople = null;
         tempPeople = peopleRepository.save(People.builder()
                 .name("Kiki")
@@ -61,14 +50,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .hometown("Bandon")
                 .vaccinated(true)
                 .build());
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Pfizer").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("January 22, 2021");
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Moderna").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("March 22, 2021");
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").date("January 1, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").date("March 1, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Payrai")
@@ -77,13 +64,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .hometown("7Saint Charles")
                 .vaccinated(true)
                 .build());
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Pfizer").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("January 22, 2021");
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Moderna").build()));
-
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").date("January 14, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").date("March 14, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Vasaz")
@@ -92,14 +78,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .hometown("Ionian river")
                 .vaccinated(true)
                 .build());
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Pfizer").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("January 22, 2021");
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Moderna").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("March 22, 2021");
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("AstraZeneca").date("January 14, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("AstraZeneca").date("March 14, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Zed")
@@ -108,14 +92,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .hometown("Bearer Iron")
                 .vaccinated(true)
                 .build());
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Pfizer").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("January 22, 2021");
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Moderna").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("March 22, 2021");
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").date("February 7, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").date("May 7, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Keaw")
@@ -124,14 +106,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .hometown("Jaicum Furniture")
                 .vaccinated(true)
                 .build());
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Pfizer").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("January 22, 2021");
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Pfizer").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("March 22, 2021");
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").date("February 14, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").date("April 14, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Affrican")
@@ -140,14 +120,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .hometown("GG Ionian Stair")
                 .vaccinated(true)
                 .build());
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Moderna").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("January 22, 2021");
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Moderna").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("March 22, 2021");
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("AstraZeneca").date("April 26, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").date("June 26, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Zen")
@@ -156,14 +134,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .hometown("Mak kum jai")
                 .vaccinated(true)
                 .build());
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Moderna").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("January 22, 2021");
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Moderna").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("March 22, 2021");
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").date("May 14, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").date("July 14, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Maingkhum")
@@ -172,14 +148,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .hometown("Ban don pha phi")
                 .vaccinated(true)
                 .build());
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("AstraZeneca").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("January 22, 2021");
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Moderna").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("March 22, 2021");
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").date("May 23, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").date("July 23, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Vishal")
@@ -188,14 +162,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .hometown("Airport Street")
                 .vaccinated(true)
                 .build());
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("AstraZeneca").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("January 22, 2021");
-                vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("AstraZeneca").build()));
-                tempPeople.getVaccines().add(vaccine);
-                tempPeople.setVac_date("March 22, 2021");
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("AstraZeneca").date("April 28, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").date("July 31, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
 
                 addUser();
     }

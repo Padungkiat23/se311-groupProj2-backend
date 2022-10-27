@@ -18,6 +18,7 @@ public class Vaccine {
     @EqualsAndHashCode.Exclude
     Long id;
     String name;
+    String date;
 //    @ManyToMany
 //    List<People> gotVaccinated;
 }

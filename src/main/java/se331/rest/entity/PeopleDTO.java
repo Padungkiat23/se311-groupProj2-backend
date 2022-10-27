@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.ManyToOne;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class PeopleDTO {
     String surname;
     Long age;
     String hometown;
+
     List< PeopleVaccineDTO > vaccines ;
     Boolean vaccinated;
     List<String> imageUrls;

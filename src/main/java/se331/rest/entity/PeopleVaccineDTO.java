@@ -12,5 +12,6 @@ import lombok.NoArgsConstructor;
 public class PeopleVaccineDTO {
     Long id;
     String name;// name of doctor
+    String date;
 }
 

@@ -14,5 +14,5 @@ import java.util.List;
 public class DoctorAuthDTO {
     Long id;
     String name;
-    List<String> authorities;
+    List<AuthorityDTO> authorities;
 }
