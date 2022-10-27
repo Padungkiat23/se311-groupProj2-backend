@@ -52,7 +52,7 @@ public class WebSecurityConfig {
                 .antMatchers(HttpMethod.GET,"/doctor/**").permitAll()
                 .antMatchers(HttpMethod.GET,"/register").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .antMatchers(HttpMethod.POST,"/admin").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/people").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated();
         http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
