@@ -18,6 +18,7 @@ public class PeopleDTO {
     String surname;
     Long age;
     String hometown;
+
     List< PeopleVaccineDTO > vaccines ;
     Boolean vaccinated;
     List<String> imageUrls;

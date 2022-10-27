@@ -22,7 +22,6 @@ public class People {
     String surname;
     Long age;
     String hometown;
-    String vac_date;
     Boolean vaccinated;
 
     @ManyToOne
