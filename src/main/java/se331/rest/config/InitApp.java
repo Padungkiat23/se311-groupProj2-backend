@@ -21,6 +21,7 @@ import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.List;
 
 @Component
 public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
@@ -39,8 +40,20 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     @Transactional
 
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
+        addUser();
         Doctor doctor = null;
-        doctor = doctorRepository.save(Doctor.builder().name("Dr.Smith Henry").build());
+//        doctor = doctorRepository.save(Doctor.builder()
+//                .name("Dr.Smith Henry")
+//                .build());
+//        Doctor doc1, doc2, doc3;
+//        doc1 = doctorRepository.save(Doctor.builder()
+//                .name("Dr.Smith Henry")
+//                .build());
+//        doc1.getOwnPeople().add(doctor);
+//        doc2 = doctorRepository.save(Doctor.builder()
+//                .name("CMU").build());
+//        doc3 = doctorRepository.save(Doctor.builder()
+//                .name("ChiangMai").build());
         Vaccine vaccine = null;
         People tempPeople = null;
         tempPeople = peopleRepository.save(People.builder()
@@ -51,12 +64,15 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("Pfizer").date("January 1, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                tempPeople.getVaccines().add(vaccine);
+                vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("Pfizer").date("March 1, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
+                tempPeople.getVaccines().add(vaccine);
+
+                tempPeople.setUser(patient);
+                patient.setPeople(tempPeople);
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Payrai")
@@ -73,6 +89,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .name("Moderna").date("March 14, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
 
+            tempPeople.setUser(admin);
+            admin.setPeople(tempPeople);
+
         tempPeople = peopleRepository.save(People.builder()
                 .name("Vasaz")
                 .surname("Gizar")
@@ -87,6 +106,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
             vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("AstraZeneca").date("March 14, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
+
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Zed")
@@ -178,7 +198,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .name("Moderna").date("July 31, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
 
-                addUser();
+
     }
         // Authority configuration
         // Doctor is an admin, Patient is a user, Neither are disableUser
@@ -212,7 +232,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("patient")
                 .lastname("patient")
                 .email("patient@user.com")
-                .enabled(false)
+                .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
         authorityRepository.save(authPatient);

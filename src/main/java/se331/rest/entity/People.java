@@ -38,7 +38,7 @@ public class People {
 //    @ElementCollection
 //    List<String> imageUrls;
 
-    @OneToOne(mappedBy = "people")
+    @OneToOne
     User user;
 
 }

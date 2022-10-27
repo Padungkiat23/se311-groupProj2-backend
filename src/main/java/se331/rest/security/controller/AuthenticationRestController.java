@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import se331.rest.entity.Doctor;
 import se331.rest.entity.Vaccine;
 import se331.rest.repository.VaccinatedRepository;
 import se331.rest.security.entity.Authority;
@@ -61,60 +62,6 @@ public class AuthenticationRestController {
 
     @Autowired
     VaccinatedRepository vaccinatedRepository;
-//
-//    @PostMapping("${jwt.route.authentication.path}")
-//    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException {
-//
-//        // Perform the security
-//        final Authentication authentication = authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(
-//                        authenticationRequest.getUsername(),
-//                        authenticationRequest.getPassword()
-//                )
-//        );
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
-//
-//        // Reload password post-security so we can generate token
-//        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
-//        final String token = jwtTokenUtil.generateToken(userDetails);
-//        Map result = new HashMap();
-//        result.put("token", token);
-//        User user = userRepository.findById(((JwtUser) userDetails).getId()).orElse(null);
-//        if (user.getVaccine() != null) {
-//            result.put("user", LabMapper.INSTANCE.getOrganizerAuthDTO( user.getVaccine()));
-//        }
-//
-//        return ResponseEntity.ok(result);
-//    }
-//    @PostMapping("/register")
-//    public ResponseEntity<?> registerUser(@RequestBody User user) throws  AuthenticationException{
-//        PasswordEncoder encoder = new BCryptPasswordEncoder();
-//        Authority authAdmin = Authority.builder().name(AuthorityName.ROLE_ADMIN).build();
-//        authorityRepository.save(authAdmin);
-//        User user2 = User.builder()
-//                .enabled(true)
-//                .email(user.getEmail())
-//                .firstname("")
-//                .lastname("")
-//                .username(user.getUsername())
-//                .password(encoder.encode(user.getPassword()))
-//                .lastPasswordResetDate(Date.from(LocalDate.of(2021,01,01)
-//                        .atStartOfDay(ZoneId.systemDefault()).toInstant()))
-//                .build();
-//
-//        user2.getAuthorities().add(authAdmin);
-//        userRepository.save(user2);
-//
-//        Vaccine vaccine = Vaccine.builder().name(user.getUsername()).build();
-//        vaccinatedRepository.save(vaccine);
-//
-//        vaccine.setUser(user2);
-//        user2.setVaccine(vaccine);
-//
-//        userService.save(user2);
-//        return ResponseEntity.ok(LabMapper.INSTANCE.getUserDTO(user2));
-//    }
-
 
     @GetMapping(value = "${jwt.route.authentication.refresh}")
     public ResponseEntity<?> refreshAndGetAuthenticationToken(HttpServletRequest request) {
@@ -147,12 +94,60 @@ public class AuthenticationRestController {
         final String token = jwtTokenUtil.generateToken(userDetails);
         Map result = new HashMap();
         result.put("token", token);
-        User user = userRepository.findById(((JwtUser)
-                userDetails).getId()).orElse(null);
+        User user = userRepository.findById(((JwtUser) userDetails).getId()).orElse(null);
+        if (user.getPeople() != null) {
+            result.put("user", LabMapper.INSTANCE.getPeopleAuthDTO(user.getPeople()));
+        }
+        if (user.getAdmin()!= null) {
+            result.put("user", LabMapper.INSTANCE.getAdminAuthDTO(user.getAdmin()));
+        }
         if (user.getDoctor() != null) {
             result.put("user", LabMapper.INSTANCE.getDoctorAuthDTO(user.getDoctor()));
         }
         return ResponseEntity.ok(result);
     }
 
+//    @PostMapping("/register")
+//    public ResponseEntity<?> registerUser(@RequestBody User user) throws  AuthenticationException{
+//        PasswordEncoder encoder = new BCryptPasswordEncoder();
+//        Authority authAdmin = Authority.builder().name(AuthorityName.ROLE_ADMIN).build();
+//        authorityRepository.save(authAdmin);
+//        User user2 = User.builder()
+//                .enabled(true)
+//                .email(user.getEmail())
+//                .firstname("")
+//                .lastname("")
+//                .username(user.getUsername())
+//                .password(encoder.encode(user.getPassword()))
+//                .lastPasswordResetDate(Date.from(LocalDate.of(2021,01,01)
+//                        .atStartOfDay(ZoneId.systemDefault()).toInstant()))
+//                .build();
+//
+//        user2.getAuthorities().add(authAdmin);
+//        userRepository.save(user2);
+//
+//        Doctor doctor = Doctor.builder().name(user.getUsername()).build();
+//        doctorRepository.save(organizer);
+//
+//        organizer.setUser(user2);
+//        user2.setOrganizer(organizer);
+//
+//        userService.save(user2);
+//        return ResponseEntity.ok(LabMapper.INSTANCE.getUserDTO(user2));
+//    }
+//
+//
+//    @GetMapping(value = "${jwt.route.authentication.refresh}")
+//    public ResponseEntity<?> refreshAndGetAuthenticationToken(HttpServletRequest request) {
+//        String token = request.getHeader(tokenHeader);
+//        String username = jwtTokenUtil.getUsernameFromToken(token);
+//        JwtUser user = (JwtUser) userDetailsService.loadUserByUsername(username);
+//
+//        if (jwtTokenUtil.canTokenBeRefreshed(token, user.getLastPasswordResetDate())) {
+//            String refreshedToken = jwtTokenUtil.refreshToken(token);
+//            return ResponseEntity.ok(new JwtAuthenticationResponse(refreshedToken));
+//        } else {
+//            return ResponseEntity.badRequest().body(null);
+//        }
+//    }
 }
