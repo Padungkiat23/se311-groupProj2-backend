@@ -23,6 +23,7 @@ public class People {
     Long age;
     String hometown;
     Boolean vaccinated;
+    String imgUrls;
 
     @ManyToOne
     Doctor doctor;
@@ -34,8 +35,8 @@ public class People {
 //    @ManyToMany(mappedBy = "gotVaccinated")
 //    List<Vaccine> participants;
     // people images
-    @ElementCollection
-    List<String> imageUrls;
+//    @ElementCollection
+//    List<String> imageUrls;
 
     @OneToOne(mappedBy = "people")
     User user;

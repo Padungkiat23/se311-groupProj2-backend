@@ -48,6 +48,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Eazyi")
                 .age(22L)
                 .hometown("Bandon")
+                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
             vaccine = vaccinatedRepository.save((Vaccine.builder()
@@ -62,6 +63,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Najar")
                 .age(23L)
                 .hometown("7Saint Charles")
+                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
             vaccine = vaccinatedRepository.save((Vaccine.builder()
@@ -76,6 +78,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Gizar")
                 .age(21L)
                 .hometown("Ionian river")
+                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
             vaccine = vaccinatedRepository.save((Vaccine.builder()
@@ -90,6 +93,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Shadow")
                 .age(25L)
                 .hometown("Bearer Iron")
+                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
             vaccine = vaccinatedRepository.save((Vaccine.builder()
@@ -104,6 +108,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Sai Nam")
                 .age(26L)
                 .hometown("Jaicum Furniture")
+                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
             vaccine = vaccinatedRepository.save((Vaccine.builder()
@@ -118,6 +123,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Daze")
                 .age(26L)
                 .hometown("GG Ionian Stair")
+                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
             vaccine = vaccinatedRepository.save((Vaccine.builder()
@@ -132,6 +138,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Batsu")
                 .age(26L)
                 .hometown("Mak kum jai")
+                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
             vaccine = vaccinatedRepository.save((Vaccine.builder()
@@ -146,6 +153,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Sapanjai")
                 .age(26L)
                 .hometown("Ban don pha phi")
+                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
             vaccine = vaccinatedRepository.save((Vaccine.builder()
@@ -160,6 +168,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Wilkins")
                 .age(21L)
                 .hometown("Airport Street")
+                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
             vaccine = vaccinatedRepository.save((Vaccine.builder()
