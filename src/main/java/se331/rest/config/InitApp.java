@@ -149,7 +149,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
             tempPeople.getVaccines().add(vaccine);
 
         tempPeople = peopleRepository.save(People.builder()
-                .name("Maingkhum")
+                .name("Maing")
                 .surname("Sapanjai")
                 .age(26L)
                 .hometown("Ban don pha phi")
