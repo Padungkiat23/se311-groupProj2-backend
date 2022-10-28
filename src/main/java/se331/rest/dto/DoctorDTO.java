@@ -1,17 +1,19 @@
-package se331.rest.entity;
+package se331.rest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PeopleVaccineDTO {
+public class DoctorDTO {
     Long id;
-    String name;// name of doctor
-    String date;
+    String name;
+    List<DoctorOwnPeopleDTO> ownPeople = new ArrayList<>();
 }
-

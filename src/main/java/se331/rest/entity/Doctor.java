@@ -19,6 +19,9 @@ public class Doctor {
     Long id;
     String name;
 
+    @ManyToOne
+    Comment doc_comment;
+
     @OneToMany(mappedBy = "doctor")
     @Builder.Default
     List<People> ownPeople = new ArrayList<>();

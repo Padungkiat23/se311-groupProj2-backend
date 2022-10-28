@@ -1,18 +1,20 @@
-package se331.rest.entity;
+package se331.rest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PeopleAuthDTO {
+public class VaccineDTO {
     Long id;
     String name;
-    List<String> authorities;
+    String date;
 }
+

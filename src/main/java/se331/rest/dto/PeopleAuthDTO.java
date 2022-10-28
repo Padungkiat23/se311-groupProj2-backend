@@ -1,4 +1,4 @@
-package se331.rest.entity;
+package se331.rest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DoctorAuthDTO {
+public class PeopleAuthDTO {
     Long id;
     String name;
     List<String> authorities;

@@ -1,18 +1,14 @@
-package se331.rest.entity;
+package se331.rest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DoctorOwnPeopleDTO {
-    Long id;
+public class AuthorityDTO {
     String name;
-    List<Participant> participants;
 }
