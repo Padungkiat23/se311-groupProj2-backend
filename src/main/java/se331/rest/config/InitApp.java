@@ -229,7 +229,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     private void addUser() {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         Authority authDoctor = Authority.builder().name(AuthorityName.ROLE_DOCTOR).build();
-        Authority authPatient = Authority.builder().name(AuthorityName.ROLE_PATIENT).build();
+        Authority authUser = Authority.builder().name(AuthorityName.ROLE_USER).build();
         Authority authAdmin = Authority.builder().name(AuthorityName.ROLE_ADMIN).build();
         user1 = User.builder()
                 .username("admin")
@@ -256,11 +256,11 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
         user3 = User.builder()
-                .username("patient")
-                .password(encoder.encode("patient"))
-                .firstname("patient")
-                .lastname("patient")
-                .email("patient@user.com")
+                .username("user3")
+                .password(encoder.encode("user3"))
+                .firstname("")
+                .lastname("")
+                .email("user3@user.com")
                 .age("")
                 .hometown("")
                 .image("")
@@ -364,20 +364,20 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
 
-        authorityRepository.save(authPatient);
+        authorityRepository.save(authUser);
         authorityRepository.save(authDoctor);
         authorityRepository.save(authAdmin);
         user1.getAuthorities().add(authAdmin); // user1 is admin
         user2.getAuthorities().add(authDoctor); // user2 is doctor
-        user3.getAuthorities().add(authPatient);
-        user4.getAuthorities().add(authPatient);
-        user5.getAuthorities().add(authPatient);
-        user6.getAuthorities().add(authPatient);
-        user7.getAuthorities().add(authPatient);
-        user8.getAuthorities().add(authPatient);
-        user9.getAuthorities().add(authPatient);
-        user10.getAuthorities().add(authPatient);
-        user11.getAuthorities().add(authPatient);
+        user3.getAuthorities().add(authUser);
+        user4.getAuthorities().add(authUser);
+        user5.getAuthorities().add(authUser);
+        user6.getAuthorities().add(authUser);
+        user7.getAuthorities().add(authUser);
+        user8.getAuthorities().add(authUser);
+        user9.getAuthorities().add(authUser);
+        user10.getAuthorities().add(authUser);
+        user11.getAuthorities().add(authUser);
         userRepository.save(user1);
         userRepository.save(user2);
         userRepository.save(user3);

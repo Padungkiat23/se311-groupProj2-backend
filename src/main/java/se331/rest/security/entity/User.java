@@ -53,11 +53,9 @@ public class User {
     private String email;
 
     @Column(name = "AGE", length = 50)
-    @NotNull
     private String age;
 
-    @Column(name = "hometown", length = 50)
-    @NotNull
+    @Column(name = "HOMETOWN")
     private String hometown;
 
     @Column(name="IMAGE")

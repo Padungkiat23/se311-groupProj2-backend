@@ -99,9 +99,9 @@ public class AuthenticationRestController {
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) throws  AuthenticationException{
         PasswordEncoder encoder = new BCryptPasswordEncoder();
-        Authority authAdmin = Authority.builder().name(AuthorityName.ROLE_ADMIN).build();
+        Authority authAdmin = Authority.builder().name(AuthorityName.ROLE_USER).build();
         authorityRepository.save(authAdmin);
-        User user2 = User.builder()
+        User newuser = User.builder()
                 .enabled(true)
                 .email(user.getEmail())
                 .firstname(user.getFirstname())
@@ -116,19 +116,19 @@ public class AuthenticationRestController {
                         .atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
 
-        System.out.println(user2);
+        System.out.println(newuser);
 
-        user2.getAuthorities().add(authAdmin);
-        userRepository.save(user2);
+        newuser.getAuthorities().add(authAdmin);
+        userRepository.save(newuser);
 
-        Doctor doctor = Doctor.builder().name(user.getUsername()).build();
+        Doctor doctor = Doctor.builder().name(newuser.getUsername()).build();
         doctorRepository.save(doctor);
 
-        doctor.setUser(user2);
-        user2.setDoctor(doctor);
+        doctor.setUser(newuser);
+        newuser.setDoctor(doctor);
 
-        userService.save(user2);
-        return ResponseEntity.ok(LabMapper.INSTANCE.getUserDTO(user2));
+        userService.save(newuser);
+        return ResponseEntity.ok(LabMapper.INSTANCE.getUserDTO(user));
     }
 
 

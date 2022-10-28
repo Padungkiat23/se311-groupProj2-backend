@@ -20,5 +20,6 @@ public class UserDTO {
     String age;
     String hometown;
     String image;
+    List<AuthorityDTO> authority;
 
 }
