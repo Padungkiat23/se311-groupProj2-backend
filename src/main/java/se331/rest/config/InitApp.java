@@ -42,9 +42,11 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         addUser();
         Doctor doctor = null;
-//        doctor = doctorRepository.save(Doctor.builder()
-//                .name("Dr.Smith Henry")
-//                .build());
+        doctor = doctorRepository.save(Doctor.builder()
+                .name("Dr.Smith Henry")
+                .build());
+                doctor.setUser(doctor.getUser());
+                doctor.getOwnPeople();
 //        Doctor doc1, doc2, doc3;
 //        doc1 = doctorRepository.save(Doctor.builder()
 //                .name("Dr.Smith Henry")
