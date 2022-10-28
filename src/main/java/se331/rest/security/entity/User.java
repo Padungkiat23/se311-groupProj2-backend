@@ -52,6 +52,17 @@ public class User {
     @NotNull
     private String email;
 
+    @Column(name = "AGE", length = 50)
+    @NotNull
+    private String age;
+
+    @Column(name = "hometown", length = 50)
+    @NotNull
+    private String hometown;
+
+    @Column(name="IMAGE")
+    String image;
+
     @Column(name = "ENABLED")
     @NotNull
     private Boolean enabled;

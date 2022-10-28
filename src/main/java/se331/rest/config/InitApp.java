@@ -237,6 +237,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("admin")
                 .lastname("admin")
                 .email("admin@admin.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -246,15 +249,21 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("doctor")
                 .lastname("doctor")
                 .email("doctor@user.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
         user3 = User.builder()
-                .username("user3")
-                .password(encoder.encode("user3"))
-                .firstname("")
-                .lastname("")
-                .email("user3@user.com")
+                .username("patient")
+                .password(encoder.encode("patient"))
+                .firstname("patient")
+                .lastname("patient")
+                .email("patient@user.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -264,6 +273,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("")
                 .lastname("")
                 .email("user4@user.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -273,6 +285,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("")
                 .lastname("")
                 .email("user5@user.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -282,6 +297,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("")
                 .lastname("")
                 .email("user6@user.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -291,6 +309,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("")
                 .lastname("")
                 .email("user7@user.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -300,6 +321,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("")
                 .lastname("")
                 .email("user8@user.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -309,6 +333,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("")
                 .lastname("")
                 .email("user9@user.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -318,6 +345,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("")
                 .lastname("")
                 .email("user10@user.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -327,6 +357,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("")
                 .lastname("")
                 .email("user11@user.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -336,7 +369,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         authorityRepository.save(authAdmin);
         user1.getAuthorities().add(authAdmin); // user1 is admin
         user2.getAuthorities().add(authDoctor); // user2 is doctor
-        user3.getAuthorities().add(authPatient); //user3 is patient
+        user3.getAuthorities().add(authPatient);
         user4.getAuthorities().add(authPatient);
         user5.getAuthorities().add(authPatient);
         user6.getAuthorities().add(authPatient);
