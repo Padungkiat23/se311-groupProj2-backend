@@ -6,9 +6,11 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import se331.rest.entity.Admin;
 import se331.rest.entity.Doctor;
 import se331.rest.entity.People;
 import se331.rest.entity.Vaccine;
+import se331.rest.repository.AdminRepository;
 import se331.rest.repository.DoctorRepository;
 import se331.rest.repository.PeopleRepository;
 import se331.rest.repository.VaccinatedRepository;
@@ -35,29 +37,37 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     UserRepository userRepository;
     @Autowired
     DoctorRepository doctorRepository;
+    @Autowired
+    AdminRepository adminRepository;
+
+
+
 
     @Override
     @Transactional
 
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         addUser();
-        Doctor doctor = null;
-        doctor = doctorRepository.save(Doctor.builder()
+
+        Admin ad = null;
+        ad = adminRepository.save(Admin.builder()
+                .name("Admin")
+                .build());
+        ad.setUser(admin);
+        admin.setAdmin(ad);
+
+        Doctor doc = null;
+        doc = doctorRepository.save(Doctor.builder()
                 .name("Dr.Smith Henry")
                 .build());
-                doctor.setUser(doctor.getUser());
-                doctor.getOwnPeople();
-//        Doctor doc1, doc2, doc3;
-//        doc1 = doctorRepository.save(Doctor.builder()
-//                .name("Dr.Smith Henry")
-//                .build());
-//        doc1.getOwnPeople().add(doctor);
-//        doc2 = doctorRepository.save(Doctor.builder()
-//                .name("CMU").build());
-//        doc3 = doctorRepository.save(Doctor.builder()
-//                .name("ChiangMai").build());
+        doc.setUser(doctor);
+        doctor.setDoctor(doc);
+
         Vaccine vaccine = null;
         People tempPeople = null;
+
+
+
         tempPeople = peopleRepository.save(People.builder()
                 .name("Kiki")
                 .surname("Eazyi")
@@ -73,8 +83,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .name("Pfizer").date("March 1, 2021").build()));
                 tempPeople.getVaccines().add(vaccine);
 
-                tempPeople.setUser(patient);
-                patient.setPeople(tempPeople);
+//                tempPeople.setUser(patient);
+//                patient.setPeople(tempPeople);
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Payrai")
@@ -91,8 +101,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .name("Moderna").date("March 14, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
 
-            tempPeople.setUser(admin);
-            admin.setPeople(tempPeople);
+
+
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Vasaz")
@@ -204,7 +214,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     }
         // Authority configuration
         // Doctor is an admin, Patient is a user, Neither are disableUser
-        User admin, doctor, patient;
+        User admin, doctor, patient ;
     private void addUser() {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         Authority authDoctor = Authority.builder().name(AuthorityName.ROLE_DOCTOR).build();

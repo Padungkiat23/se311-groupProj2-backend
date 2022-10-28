@@ -76,4 +76,7 @@ public class User {
 
     @OneToOne
     Admin admin;
+
+    @OneToOne
+    User user;
 }
