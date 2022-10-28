@@ -226,6 +226,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("admin")
                 .lastname("admin")
                 .email("admin@admin.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -235,6 +238,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("doctor")
                 .lastname("doctor")
                 .email("doctor@user.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -244,6 +250,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("patient")
                 .lastname("patient")
                 .email("patient@user.com")
+                .age("")
+                .hometown("")
+                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
