@@ -66,9 +66,6 @@ public class User {
     private List<Authority> authorities = new ArrayList<>();
 
     @OneToOne
-    Vaccine vaccine;
-
-    @OneToOne
     Doctor doctor;
 
     @OneToOne

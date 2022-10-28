@@ -1,4 +1,4 @@
-package se331.rest.entity;
+package se331.rest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdminDTO {
+public class CommentDTO {
     Long id;
-    String name;
-    String email;
+    String doc_name;
+    String peo_name;
+    String comment;
+    String date;
 }

@@ -6,6 +6,7 @@ import se331.rest.security.entity.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @Data
@@ -28,19 +29,19 @@ public class People {
     @ManyToOne
     Doctor doctor;
 
+    @ManyToOne
+    Comment comment;
+
     @OneToMany
     @Builder.Default
     List<Vaccine> vaccines = new ArrayList<>();
-    // map in participant
-//    @ManyToMany(mappedBy = "gotVaccinated")
-//    List<Vaccine> participants;
-    // people images
-//    @ElementCollection
-//    List<String> imageUrls;
 
     @OneToOne
     User user;
 
+    @OneToMany
+    @Builder.Default
+    List<Comment> commentList= new ArrayList<>();
 }
 
 
