@@ -104,17 +104,19 @@ public class AuthenticationRestController {
         User user2 = User.builder()
                 .enabled(true)
                 .email(user.getEmail())
-                .firstname("")
-                .lastname("")
-                .email("")
-                .age("")
-                .hometown("")
+                .firstname(user.getFirstname())
+                .lastname(user.getLastname())
+                .email(user.getEmail())
+                .age(user.getAge())
+                .hometown(user.getHometown())
                 .image(user.getImage())
                 .username(user.getUsername())
                 .password(encoder.encode(user.getPassword()))
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021,01,01)
                         .atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
+
+        System.out.println(user2);
 
         user2.getAuthorities().add(authAdmin);
         userRepository.save(user2);

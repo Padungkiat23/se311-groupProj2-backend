@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -13,5 +15,10 @@ public class UserDTO {
     String username;
     String email;
     String password;
+    String firstname;
+    String lastname;
+    String age;
+    String hometown;
+    String image;
 
 }
