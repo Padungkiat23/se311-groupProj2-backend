@@ -52,6 +52,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         Admin ad = null;
         ad = adminRepository.save(Admin.builder()
                 .name("Admin")
+                .email("admin@admin.com")
+                .image("https://visualpharm.com/assets/381/Admin-595b40b65ba036ed117d3b23.svg")
                 .build());
         ad.setUser(user1);
         user1.setAdmin(ad);
@@ -59,6 +61,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         Doctor doc = null;
         doc = doctorRepository.save(Doctor.builder()
                 .name("Dr.Smith Henry")
+                .email("Smith@doctor.com")
+                .image("https://www.thonburibamrungmuang.com/images/upload/editor/source/Doctor/m-doctor-360x215-011.jpg")
                 .build());
         doc.setUser(user2);
         user2.setDoctor(doc);
@@ -234,24 +238,24 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         user1 = User.builder()
                 .username("admin")
                 .password(encoder.encode("admin"))
-                .firstname("admin")
-                .lastname("admin")
+                .firstname("Admin")
+                .lastname("isDabest")
                 .email("admin@admin.com")
+                .image("https://visualpharm.com/assets/381/Admin-595b40b65ba036ed117d3b23.svg")
                 .age("")
                 .hometown("")
-                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
         user2 = User.builder()
                 .username("doctor")
                 .password(encoder.encode("doctor"))
-                .firstname("doctor")
-                .lastname("doctor")
-                .email("doctor@user.com")
+                .firstname("Dr.Smith")
+                .lastname("Smith")
+                .email("smith@doctor.com")
+                .image("https://www.thonburibamrungmuang.com/images/upload/editor/source/Doctor/m-doctor-360x215-011.jpg")
                 .age("")
                 .hometown("")
-                .image("")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();

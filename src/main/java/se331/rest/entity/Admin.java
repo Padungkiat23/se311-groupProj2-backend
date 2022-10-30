@@ -17,6 +17,7 @@ public class Admin {
     Long id;
     String name;
     String email;
+    String image;
     @OneToOne
     User user;
 }

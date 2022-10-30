@@ -13,4 +13,5 @@ public class AdminDTO {
     Long id;
     String name;
     String email;
+    String image;
 }

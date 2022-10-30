@@ -15,5 +15,7 @@ import java.util.List;
 public class DoctorDTO {
     Long id;
     String name;
+    String email;
+    String image;
     List<DoctorOwnPeopleDTO> ownPeople = new ArrayList<>();
 }

@@ -34,4 +34,6 @@ public interface LabMapper {
 
     @Mapping(target = "authorities", expression = "java(admin.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
     AdminAuthDTO getAdminAuthDTO(Admin admin);
+
+    List<UserDTO>getUserDto(List<User> user);
 }

@@ -49,6 +49,7 @@ public class WebSecurityConfig {
                 .authorizeRequests()
                 .antMatchers("/auth/**",  "/refresh", "/register").permitAll()
                 .antMatchers(HttpMethod.GET,"/people/**").permitAll()
+
                 .antMatchers(HttpMethod.GET,"/vaccines/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/uploadFile").permitAll()
                 .antMatchers(HttpMethod.POST,"/people").hasRole(("ADMIN"))

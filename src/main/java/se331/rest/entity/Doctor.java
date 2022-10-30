@@ -18,6 +18,8 @@ public class Doctor {
     @EqualsAndHashCode.Exclude
     Long id;
     String name;
+    String email;
+    String image;
 
     @ManyToOne
     Comment doc_comment;
