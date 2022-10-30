@@ -14,5 +14,5 @@ public class CommentDTO {
     String doc_name;
     String peo_name;
     String comment;
-    String date;
+    String email;
 }

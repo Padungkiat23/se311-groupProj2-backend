@@ -64,18 +64,19 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .email("Smith@doctor.com")
                 .image("https://www.thonburibamrungmuang.com/images/upload/editor/source/Doctor/m-doctor-360x215-011.jpg")
                 .build());
+        doc.setUser(user2);
+        user2.setDoctor(doc);
+
         doc = doctorRepository.save(Doctor.builder()
                 .name("Dr.Afar Zir")
                 .email("Afar@doctor.com")
                 .image("https://www.thonburibamrungmuang.com/images/upload/editor/source/Doctor/m-doctor-360x215-011.jpg")
                 .build());
-        doc.setUser(user2);
-        user2.setDoctor(doc);
+        doc.setUser(user12);
+        user12.setDoctor(doc);
 
         Vaccine vaccine = null;
         People tempPeople = null;
-
-
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Kiki")
@@ -234,7 +235,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         // Authority configuration
         // Doctor is an admin, Patient is a user, Neither are disableUser
 
-        User user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11;
+        User user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11, user12;
     private void addUser() {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         Authority authDoctor = Authority.builder().name(AuthorityName.ROLE_DOCTOR).build();
@@ -372,6 +373,18 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
+        user12 = User.builder()
+                .username("doctor2")
+                .password(encoder.encode("doctor2"))
+                .firstname("")
+                .lastname("")
+                .email("doctor2@doctor2.com")
+                .age("")
+                .hometown("")
+                .image("")
+                .enabled(true)
+                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .build();
 
         authorityRepository.save(authUser);
         authorityRepository.save(authDoctor);
@@ -398,5 +411,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         userRepository.save(user9);
         userRepository.save(user10);
         userRepository.save(user11);
+        userRepository.save(user12);
     }
 }

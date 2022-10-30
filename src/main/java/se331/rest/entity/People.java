@@ -29,9 +29,6 @@ public class People {
     @ManyToOne
     Doctor doctor;
 
-    @ManyToOne
-    Comment comment;
-
     @OneToMany
     @Builder.Default
     List<Vaccine> vaccines = new ArrayList<>();
