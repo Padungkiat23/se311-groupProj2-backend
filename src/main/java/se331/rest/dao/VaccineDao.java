@@ -10,5 +10,6 @@ public interface VaccineDao {
     Page<Vaccine> getVaccine(Pageable pageRequest);
     Optional<Vaccine> findById(Long id);
 
+    Vaccine save(Vaccine vaccine);
 }
 

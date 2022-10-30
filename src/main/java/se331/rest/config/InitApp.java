@@ -64,6 +64,11 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .email("Smith@doctor.com")
                 .image("https://www.thonburibamrungmuang.com/images/upload/editor/source/Doctor/m-doctor-360x215-011.jpg")
                 .build());
+        doc = doctorRepository.save(Doctor.builder()
+                .name("Dr.Afar Zir")
+                .email("Afar@doctor.com")
+                .image("https://www.thonburibamrungmuang.com/images/upload/editor/source/Doctor/m-doctor-360x215-011.jpg")
+                .build());
         doc.setUser(user2);
         user2.setDoctor(doc);
 

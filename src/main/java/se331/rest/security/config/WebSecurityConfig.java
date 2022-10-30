@@ -49,9 +49,8 @@ public class WebSecurityConfig {
                 .authorizeRequests()
                 .antMatchers("/auth/**",  "/refresh", "/register").permitAll()
                 .antMatchers(HttpMethod.GET,"/people/**").permitAll()
-
                 .antMatchers(HttpMethod.GET,"/vaccines/**").permitAll()
-                .antMatchers(HttpMethod.POST,"/uploadFile").permitAll()
+                .antMatchers(HttpMethod.POST,"/vaccine/people/{id}").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST,"/people").hasRole(("ADMIN"))
                 .antMatchers(HttpMethod.POST,"/people").hasRole(("DOCTOR"))
                 .antMatchers(HttpMethod.POST,"/people").hasRole(("USER"))
@@ -62,7 +61,6 @@ public class WebSecurityConfig {
         log.info("security filter chain set");
         return http.build();
     }
-
 
 //
 //
