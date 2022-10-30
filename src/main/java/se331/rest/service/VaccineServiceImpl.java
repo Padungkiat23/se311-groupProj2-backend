@@ -25,5 +25,9 @@ public class VaccineServiceImpl implements VaccineService {
         return vaccineDao.getVaccine(PageRequest.of(page, pageSize));
     }
 
+    @Override
+    public Vaccine save(Vaccine vaccine) {
+        return vaccineDao.save(vaccine);
+    }
 }
 

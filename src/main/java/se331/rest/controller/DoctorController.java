@@ -18,29 +18,27 @@ public class DoctorController {
 
     DoctorService doctorService;
 
-    @GetMapping("/doctors")
-    ResponseEntity<?> getDoctors() {
-        return ResponseEntity.ok(LabMapper.INSTANCE.getDoctorDto(doctorService.getAllDoctor()));
+    @GetMapping("doctors")
+    public ResponseEntity<?> getPeopleList(@RequestParam(value = "_limit", required = false) Integer perPage
+            , @RequestParam(value = "_page", required = false) Integer page
+            , @RequestParam(value = "title", required = false) String title) {
+        perPage = perPage == null ? 2 : perPage;
+        page = page == null ? 1 : page;
+        Page<Doctor> pageOutput;
+        if (title == null) {
+            pageOutput = doctorService.getDoctor(perPage, page);
+        } else {
+            pageOutput = doctorService.getDoctor(title, PageRequest.of(page - 1, perPage));
+        }
+        HttpHeaders responseHeader = new HttpHeaders();
+
+        responseHeader.set("x-total-count", String.valueOf(pageOutput.getTotalElements()));
+        return new ResponseEntity<>(LabMapper.INSTANCE.getDoctorDto(pageOutput.getContent()), responseHeader, HttpStatus.OK);
+
+
     }
 
-//    @GetMapping("/doctors")
-//    public ResponseEntity<?> getDoctors(@RequestParam(value = "_limit", required = false) Integer perPage
-//            , @RequestParam(value = "_page", required = false) Integer page
-//            , @RequestParam(value = "title", required = false) String title) {
-//        perPage = perPage == null ? 6 : perPage;
-//        page = page == null ? 1 : page;
-//        Page<People> pageOutput;
-//        if (title == null) {
-//            pageOutput = peopleService.getPeoples(perPage, page);
-//        } else {
-//            pageOutput = peopleService.getPeoples(title, PageRequest.of(page - 1, perPage));
-//        }
-//        HttpHeaders responseHeader = new HttpHeaders();
-//
-//        return ResponseEntity.ok(LabMapper.INSTANCE.getDoctorDTO(doctorService.getAllDoctor()));
-//    }
-
-    @GetMapping("doctor/{id}")
+    @GetMapping("doctors/{id}")
     public ResponseEntity<?> getDoctor(@PathVariable("id") Long id) {
         Doctor output = doctorService.getDoctor(id);
         if (output != null) {
@@ -50,7 +48,7 @@ public class DoctorController {
         }
     }
 
-    @PostMapping("/doctor")
+    @PostMapping("/doctors")
     public ResponseEntity<?> addPeople(@RequestBody Doctor doctor) {
         Doctor output = doctorService.save(doctor);
         return ResponseEntity.ok(LabMapper.INSTANCE.getDoctorDto(output));

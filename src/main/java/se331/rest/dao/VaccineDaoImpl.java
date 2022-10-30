@@ -26,5 +26,9 @@ public class VaccineDaoImpl implements VaccineDao {
 
     }
 
+    @Override
+    public Vaccine save(Vaccine vaccine) {
+        return vaccinatedRepository.save(vaccine);
+    }
 }
 

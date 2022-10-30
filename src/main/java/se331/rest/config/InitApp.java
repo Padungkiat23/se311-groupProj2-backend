@@ -60,6 +60,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         doc = doctorRepository.save(Doctor.builder()
                 .name("Dr.Smith Henry")
                 .build());
+        doc = doctorRepository.save(Doctor.builder()
+                .name("Dr. Afar Zir")
+                .build());
         doc.setUser(user2);
         user2.setDoctor(doc);
 
@@ -256,11 +259,11 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
         user3 = User.builder()
-                .username("patient")
-                .password(encoder.encode("patient"))
-                .firstname("patient")
-                .lastname("patient")
-                .email("patient@user.com")
+                .username("user3")
+                .password(encoder.encode("user3t"))
+                .firstname("")
+                .lastname("")
+                .email("user3@user.com")
                 .age("")
                 .hometown("")
                 .image("")
