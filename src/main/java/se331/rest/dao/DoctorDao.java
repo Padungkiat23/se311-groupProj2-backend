@@ -6,6 +6,9 @@ import se331.rest.entity.Doctor;
 import java.util.Optional;
 
 public interface DoctorDao {
-    Page<Doctor> getDoctor(Pageable pageRequest);
-    Optional<Doctor> findById(Long id);
+    Doctor save(Doctor doctor);
+    Page<Doctor> getDoctor(Integer perPage, Integer page);
+    Doctor getDoctor(Long id);
+
+    Page<Doctor>getDoctor(Pageable pageRequest);
 }

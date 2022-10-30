@@ -23,7 +23,7 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/user")
-    public ResponseEntity<?> getUser(@RequestParam(value = "_limit", required = false) Integer perPage
+    public ResponseEntity<?> getUserList(@RequestParam(value = "_limit", required = false) Integer perPage
             , @RequestParam(value = "_page", required = false) Integer page
             , @RequestParam(value = "title", required = false) String title) {
         perPage = perPage == null ? 6 : perPage;
@@ -43,7 +43,7 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    public ResponseEntity<?> get(@PathVariable("id") Long id) {
+    public ResponseEntity<?> getUser(@PathVariable("id") Long id) {
         User output = userService.getUser(id);
         if (output != null) {
             return ResponseEntity.ok(LabMapper.INSTANCE.getUserDTO(output));

@@ -6,6 +6,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import se331.rest.entity.Doctor;
@@ -13,23 +14,23 @@ import se331.rest.entity.People;
 import se331.rest.service.DoctorService;
 import se331.rest.util.LabMapper;
 
-@RestController
+@Controller
 public class DoctorController {
-
+    @Autowired
     DoctorService doctorService;
 
-    @GetMapping("doctors")
-    public ResponseEntity<?> getPeopleList(@RequestParam(value = "_limit", required = false) Integer perPage
+    @GetMapping("doctor")
+    public ResponseEntity<?> getDoctorList(@RequestParam(value = "_limit", required = false) Integer perPage
             , @RequestParam(value = "_page", required = false) Integer page
             , @RequestParam(value = "title", required = false) String title) {
         perPage = perPage == null ? 2 : perPage;
         page = page == null ? 1 : page;
         Page<Doctor> pageOutput;
-        if (title == null) {
+//        if (title == null) {
             pageOutput = doctorService.getDoctor(perPage, page);
-        } else {
-            pageOutput = doctorService.getDoctor(title, PageRequest.of(page - 1, perPage));
-        }
+//        } else {
+//            pageOutput = doctorService.getDoctor(title, PageRequest.of(page - 1, perPage));
+//        }
         HttpHeaders responseHeader = new HttpHeaders();
 
         responseHeader.set("x-total-count", String.valueOf(pageOutput.getTotalElements()));
@@ -38,7 +39,7 @@ public class DoctorController {
 
     }
 
-    @GetMapping("doctors/{id}")
+    @GetMapping("doctor/{id}")
     public ResponseEntity<?> getDoctor(@PathVariable("id") Long id) {
         Doctor output = doctorService.getDoctor(id);
         if (output != null) {
@@ -48,8 +49,8 @@ public class DoctorController {
         }
     }
 
-    @PostMapping("/doctors")
-    public ResponseEntity<?> addPeople(@RequestBody Doctor doctor) {
+    @PostMapping("/doctor")
+    public ResponseEntity<?> addDoctor(@RequestBody Doctor doctor) {
         Doctor output = doctorService.save(doctor);
         return ResponseEntity.ok(LabMapper.INSTANCE.getDoctorDto(output));
     }
