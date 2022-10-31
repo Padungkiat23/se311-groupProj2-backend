@@ -80,7 +80,7 @@ public class UserController {
         User output = userService.save(user);
         return ResponseEntity.ok(LabMapper.INSTANCE.getUserDTO(output));
     }
-    @PostMapping("/changeRole")
+    @PostMapping("/changeRoleToPeople")
     public ResponseEntity<?> changeRoleToPatient(@RequestBody User user) throws AuthenticationException, ServletException, IOException {
         User fakeuser = userRepository.findById(user.getId()).orElse(null);
         Authority authPatient = Authority.builder().name(AuthorityName.ROLE_USER).build();

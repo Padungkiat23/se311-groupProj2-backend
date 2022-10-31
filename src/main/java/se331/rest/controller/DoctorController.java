@@ -51,12 +51,15 @@ public class DoctorController {
         }
     }
 
-    @PostMapping("/doctor")
-    public ResponseEntity<?> addDoctor(@RequestBody Doctor doctor) {
-        Doctor output = doctorService.save(doctor);
-        return ResponseEntity.ok(LabMapper.INSTANCE.getDoctorDto(output));
+//    @PostMapping("/doctor")
+//    public ResponseEntity<?> addDoctor(@RequestBody Doctor doctor) {
+//        Doctor output = doctorService.save(doctor);
+//        return ResponseEntity.ok(LabMapper.INSTANCE.getDoctorDto(output));
+//    }
+    @GetMapping("/doctors")
+    ResponseEntity<?> getDoctors() {
+        return ResponseEntity.ok(LabMapper.INSTANCE.getDoctorDto(doctorService.getAllDoctor()));
     }
-
     @GetMapping("/doctor/{id}/people")
     public ResponseEntity<?> getDoctorPatient(@PathVariable("id") Long id) {
         Doctor doctor = doctorService.getDoctor(id);
