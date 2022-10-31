@@ -40,9 +40,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     @Autowired
     AdminRepository adminRepository;
 
-
-
-
     @Override
     @Transactional
 
@@ -92,9 +89,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
             vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("Pfizer").date("March 1, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
-//            tempPeople.setUser(user1);
-//                user1.setPeople(tempPeople);
-
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Payrai")
@@ -110,8 +104,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
             vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("Moderna").date("March 14, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
-//        tempPeople.setUser(user2);
-//        user2.setPeople(tempPeople);
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Vasaz")
@@ -127,8 +119,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
             vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("AstraZeneca").date("March 14, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
-//        tempPeople.setUser(user3);
-//        user3.setPeople(tempPeople);
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Vance")
@@ -144,8 +134,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("AstraZeneca").date("March 14, 2021").build()));
         tempPeople.getVaccines().add(vaccine);
-//        tempPeople.setUser(user3);
-//        user3.setPeople(tempPeople);
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Zafar")
@@ -161,9 +149,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("AstraZeneca").date("March 14, 2021").build()));
         tempPeople.getVaccines().add(vaccine);
-//        tempPeople.setUser(user3);
-//        user3.setPeople(tempPeople);
-
 
     }
         // Authority configuration
@@ -199,7 +184,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
-
         doctor2 = User.builder()
                 .username("doctor2")
                 .password(encoder.encode("doctor2"))
@@ -272,8 +256,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
-
-
 
         authorityRepository.save(authUser);
         authorityRepository.save(authDoctor);
