@@ -92,6 +92,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
             doc1.getOwnPeople().add(tempPeople);
             tempPeople.setDoctor(doc1);
+        tempPeople.setUser(user1);
+        user1.setPeople(tempPeople);
+
         //people no 2
         tempPeople = peopleRepository.save(People.builder()
                 .name("Payrai")
@@ -109,6 +112,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempPeople.getVaccines().add(vaccine);
         doc1.getOwnPeople().add(tempPeople);
         tempPeople.setDoctor(doc1);
+        tempPeople.setUser(user2);
+        user2.setPeople(tempPeople);
 
         //people no 3
         tempPeople = peopleRepository.save(People.builder()
@@ -127,6 +132,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempPeople.getVaccines().add(vaccine);
         doc1.getOwnPeople().add(tempPeople);
         tempPeople.setDoctor(doc1);
+        tempPeople.setUser(user3);
+        user3.setPeople(tempPeople);
 
         //people no 4
         tempPeople = peopleRepository.save(People.builder()
@@ -145,6 +152,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempPeople.getVaccines().add(vaccine);
         doc2.getOwnPeople().add(tempPeople);
         tempPeople.setDoctor(doc2);
+        tempPeople.setUser(user4);
+        user4.setPeople(tempPeople);
 
         //people no 5
         tempPeople = peopleRepository.save(People.builder()
@@ -163,6 +172,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempPeople.getVaccines().add(vaccine);
         doc2.getOwnPeople().add(tempPeople);
         tempPeople.setDoctor(doc2);
+        tempPeople.setUser(user5);
+        user5.setPeople(tempPeople);
 
     }
         // Authority configuration

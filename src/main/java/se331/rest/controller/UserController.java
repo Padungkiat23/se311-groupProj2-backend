@@ -94,7 +94,7 @@ public class UserController {
                 .hometown(fakeuser.getHometown())
                 .build();
         changeUser.setUser(fakeuser);
-
+        fakeuser.getAuthorities().clear();
         fakeuser.getAuthorities().add(authPatient);
         userRepository.save(fakeuser);
         fakeuser.setPeople(changeUser);
@@ -116,7 +116,7 @@ public class UserController {
                 .email(fakeuser.getEmail())
                 .build();
         changeUser.setUser(fakeuser);
-
+        fakeuser.getAuthorities().clear();
         fakeuser.getAuthorities().add(authDoctor);
         userRepository.save(fakeuser);
         doctorService.save(changeUser);
