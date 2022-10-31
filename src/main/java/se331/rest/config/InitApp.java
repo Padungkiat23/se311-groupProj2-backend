@@ -77,7 +77,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         Vaccine vaccine = null;
         People tempPeople = null;
-
+        // user no 1
         tempPeople = peopleRepository.save(People.builder()
                 .name("Kiki")
                 .surname("Eazyi")
@@ -92,10 +92,11 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
             vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("Pfizer").date("March 1, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
+            doc1.getOwnPeople().add(tempPeople);
+            tempPeople.setDoctor(doc1);
             tempPeople.setUser(user3);
-                user3.setPeople(tempPeople);
-
-
+            user3.setPeople(tempPeople);
+        // user no 2
         tempPeople = peopleRepository.save(People.builder()
                 .name("Payrai")
                 .surname("Najar")
@@ -110,9 +111,11 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
             vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("Moderna").date("March 14, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
+        doc2.getOwnPeople().add(tempPeople);
+        tempPeople.setDoctor(doc2);
         tempPeople.setUser(user4);
         user4.setPeople(tempPeople);
-
+        // user no 3
         tempPeople = peopleRepository.save(People.builder()
                 .name("Vasaz")
                 .surname("Gizar")
@@ -127,9 +130,11 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
             vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("AstraZeneca").date("March 14, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
+        doc1.getOwnPeople().add(tempPeople);
+        tempPeople.setDoctor(doc1);
         tempPeople.setUser(user5);
         user5.setPeople(tempPeople);
-
+        // user no 4
         tempPeople = peopleRepository.save(People.builder()
                 .name("Zed")
                 .surname("Shadow")
@@ -144,9 +149,11 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
             vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("Moderna").date("May 7, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
+        doc1.getOwnPeople().add(tempPeople);
+        tempPeople.setDoctor(doc1);
         tempPeople.setUser(user6);
         user6.setPeople(tempPeople);
-
+        //user no 5
         tempPeople = peopleRepository.save(People.builder()
                 .name("Keaw")
                 .surname("Sai Nam")
@@ -161,76 +168,10 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
             vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("Moderna").date("April 14, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
+            doc2.getOwnPeople().add(tempPeople);
+            tempPeople.setDoctor(doc2);
         tempPeople.setUser(user7);
         user7.setPeople(tempPeople);
-
-        tempPeople = peopleRepository.save(People.builder()
-                .name("Affrican")
-                .surname("Daze")
-                .age(26L)
-                .hometown("GG Ionian Stair")
-                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
-                .vaccinated(true)
-                .build());
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("AstraZeneca").date("April 26, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Pfizer").date("June 26, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
-        tempPeople.setUser(user8);
-        user8.setPeople(tempPeople);
-
-        tempPeople = peopleRepository.save(People.builder()
-                .name("Zen")
-                .surname("Batsu")
-                .age(26L)
-                .hometown("Mak kum jai")
-                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
-                .vaccinated(true)
-                .build());
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Pfizer").date("May 14, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Pfizer").date("July 14, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
-        tempPeople.setUser(user9);
-        user9.setPeople(tempPeople);
-
-        tempPeople = peopleRepository.save(People.builder()
-                .name("Maing")
-                .surname("Sapanjai")
-                .age(26L)
-                .hometown("Ban don pha phi")
-                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
-                .vaccinated(true)
-                .build());
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Pfizer").date("May 23, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Pfizer").date("July 23, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
-        tempPeople.setUser(user10);
-        user10.setPeople(tempPeople);
-
-        tempPeople = peopleRepository.save(People.builder()
-                .name("Vishal")
-                .surname("Wilkins")
-                .age(21L)
-                .hometown("Airport Street")
-                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
-                .vaccinated(true)
-                .build());
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("AstraZeneca").date("April 28, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("Moderna").date("July 31, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
-            tempPeople.setUser(user11);
-            user11.setPeople(tempPeople);
 
     }
         // Authority configuration
@@ -267,6 +208,30 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
         user3 = User.builder()
+                .username("user1")
+                .password(encoder.encode("user1"))
+                .firstname("")
+                .lastname("")
+                .email("user1@user.com")
+                .age("")
+                .hometown("")
+                .image("")
+                .enabled(true)
+                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .build();
+        user4 = User.builder()
+                .username("user2")
+                .password(encoder.encode("user2"))
+                .firstname("")
+                .lastname("")
+                .email("user2@user.com")
+                .age("")
+                .hometown("")
+                .image("")
+                .enabled(true)
+                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .build();
+        user5 = User.builder()
                 .username("user3")
                 .password(encoder.encode("user3"))
                 .firstname("")
@@ -278,7 +243,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
-        user4 = User.builder()
+        user6 = User.builder()
                 .username("user4")
                 .password(encoder.encode("user4"))
                 .firstname("")
@@ -290,7 +255,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
-        user5 = User.builder()
+        user7 = User.builder()
                 .username("user5")
                 .password(encoder.encode("user5"))
                 .firstname("")
@@ -302,84 +267,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
-        user6 = User.builder()
-                .username("user6")
-                .password(encoder.encode("user6"))
-                .firstname("")
-                .lastname("")
-                .email("user6@user.com")
-                .age("")
-                .hometown("")
-                .image("")
-                .enabled(true)
-                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
-                .build();
-        user7 = User.builder()
-                .username("user7")
-                .password(encoder.encode("user7"))
-                .firstname("")
-                .lastname("")
-                .email("user7@user.com")
-                .age("")
-                .hometown("")
-                .image("")
-                .enabled(true)
-                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
-                .build();
-        user8 = User.builder()
-                .username("user8")
-                .password(encoder.encode("user8"))
-                .firstname("")
-                .lastname("")
-                .email("user8@user.com")
-                .age("")
-                .hometown("")
-                .image("")
-                .enabled(true)
-                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
-                .build();
-        user9 = User.builder()
-                .username("user9")
-                .password(encoder.encode("user9"))
-                .firstname("")
-                .lastname("")
-                .email("user9@user.com")
-                .age("")
-                .hometown("")
-                .image("")
-                .enabled(true)
-                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
-                .build();
-        user10 = User.builder()
-                .username("user10")
-                .password(encoder.encode("user10"))
-                .firstname("")
-                .lastname("")
-                .email("user10@user.com")
-                .age("")
-                .hometown("")
-                .image("")
-                .enabled(true)
-                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
-                .build();
-        user11 = User.builder()
-                .username("user11")
-                .password(encoder.encode("user11"))
-                .firstname("")
-                .lastname("")
-                .email("user11@user.com")
-                .age("")
-                .hometown("")
-                .image("")
-                .enabled(true)
-                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
-                .build();
         user12 = User.builder()
                 .username("doctor2")
                 .password(encoder.encode("doctor2"))
                 .firstname("Afar")
                 .lastname("Zir")
-                .email("doctor2@doctor2.com")
+                .email("Afar@doctor.com")
                 .age("")
                 .hometown("")
                 .image("")
@@ -397,10 +290,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         user5.getAuthorities().add(authUser);
         user6.getAuthorities().add(authUser);
         user7.getAuthorities().add(authUser);
-        user8.getAuthorities().add(authUser);
-        user9.getAuthorities().add(authUser);
-        user10.getAuthorities().add(authUser);
-        user11.getAuthorities().add(authUser);
+        user12.getAuthorities().add(authDoctor);
         userRepository.save(user1);
         userRepository.save(user2);
         userRepository.save(user3);
@@ -408,10 +298,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         userRepository.save(user5);
         userRepository.save(user6);
         userRepository.save(user7);
-        userRepository.save(user8);
-        userRepository.save(user9);
-        userRepository.save(user10);
-        userRepository.save(user11);
         userRepository.save(user12);
     }
 }
