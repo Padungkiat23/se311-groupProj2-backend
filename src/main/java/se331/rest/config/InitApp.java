@@ -58,22 +58,22 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         ad.setUser(user1);
         user1.setAdmin(ad);
 
-        Doctor doc = null;
-        doc = doctorRepository.save(Doctor.builder()
+        Doctor doc1,doc2;
+        doc1 = doctorRepository.save(Doctor.builder()
                 .name("Dr.Smith Henry")
                 .email("Smith@doctor.com")
                 .image("https://www.thonburibamrungmuang.com/images/upload/editor/source/Doctor/m-doctor-360x215-011.jpg")
                 .build());
-        doc.setUser(user2);
-        user2.setDoctor(doc);
+        doc1.setUser(user2);
+        user2.setDoctor(doc1);
 
-        doc = doctorRepository.save(Doctor.builder()
+        doc2 = doctorRepository.save(Doctor.builder()
                 .name("Dr.Afar Zir")
                 .email("Afar@doctor.com")
                 .image("https://www.thonburibamrungmuang.com/images/upload/editor/source/Doctor/m-doctor-360x215-011.jpg")
                 .build());
-        doc.setUser(user12);
-        user12.setDoctor(doc);
+        doc2.setUser(user12);
+        user12.setDoctor(doc2);
 
         Vaccine vaccine = null;
         People tempPeople = null;
@@ -94,6 +94,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
             tempPeople.getVaccines().add(vaccine);
             tempPeople.setUser(user3);
                 user3.setPeople(tempPeople);
+                doc1.setOwnPeople((List<People>) tempPeople);
+                tempPeople.setDoctor(doc1);
+
 
         tempPeople = peopleRepository.save(People.builder()
                 .name("Payrai")
