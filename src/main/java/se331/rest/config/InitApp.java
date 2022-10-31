@@ -47,7 +47,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         ad = adminRepository.save(Admin.builder()
                 .name("Admin")
                 .email("admin@admin.com")
-                .image("https://visualpharm.com/assets/381/Admin-595b40b65ba036ed117d3b23.svg")
+                .image("https://th.bing.com/th/id/OIP.TnPDLd_LQS8FBzu_kGIUUwHaHa?pid=ImgDet&rs=1")
                 .build());
         ad.setUser(admin);
         admin.setAdmin(ad);
@@ -56,7 +56,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         doc1 = doctorRepository.save(Doctor.builder()
                 .name("Dr.Smith Henry")
                 .email("Smith@doctor.com")
-                .image("https://www.thonburibamrungmuang.com/images/upload/editor/source/Doctor/m-doctor-360x215-011.jpg")
+                .image("https://i.pinimg.com/736x/38/17/7d/38177db42101d8127effc62fca70c77e.jpg")
                 .build());
         doc1.setUser(doctor);
         doctor.setDoctor(doc1);
@@ -64,7 +64,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         doc2 = doctorRepository.save(Doctor.builder()
                 .name("Dr.Afar Zir")
                 .email("Afar@doctor.com")
-                .image("https://www.thonburibamrungmuang.com/images/upload/editor/source/Doctor/m-doctor-360x215-011.jpg")
+                .image("https://i.pinimg.com/originals/d0/01/01/d00101e76c5b63567dc7e22a970bfe08.jpg")
                 .build());
         doc2.setUser(doctor2);
         doctor2.setDoctor(doc2);
@@ -74,11 +74,11 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         People tempPeople = null;
         //people no 1
         tempPeople = peopleRepository.save(People.builder()
-                .name("Kiki")
-                .surname("Eazyi")
-                .age(22L)
+                .name("Giorno")
+                .surname("Giovanna")
+                .age(17L)
                 .hometown("Bandon")
-                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
+                .imgUrls("https://i.pinimg.com/originals/aa/a4/9f/aaa49f0db95279ad4eeb8fe8117e95ed.png")
                 .vaccinated(true)
                 .build());
 
@@ -105,7 +105,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Najar")
                 .age(23L)
                 .hometown("7Saint Charles")
-                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
+                .imgUrls("https://i.pinimg.com/originals/17/b9/f2/17b9f2d24c506dce5cf2147b4705f1b5.jpg")
                 .vaccinated(true)
                 .build());
             vaccine = vaccinatedRepository.save((Vaccine.builder()
@@ -131,7 +131,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Gizar")
                 .age(24L)
                 .hometown("Ionian river")
-                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
+                .imgUrls("https://i.pinimg.com/originals/ba/47/ec/ba47ec3a39e5482722963dd423601077.jpg")
                 .vaccinated(true)
                 .build());
         vaccine = vaccinatedRepository.save((Vaccine.builder()
@@ -155,7 +155,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Shadow")
                 .age(25L)
                 .hometown("Bearer Iron")
-                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
+                .imgUrls("https://i.pinimg.com/550x/bf/1d/89/bf1d89ead409006d160f303a03aba16a.jpg")
                 .vaccinated(true)
                 .build());
             vaccine = vaccinatedRepository.save((Vaccine.builder()
@@ -179,7 +179,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Matilda")
                 .age(28L)
                 .hometown("Forney")
-                .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
+                .imgUrls("https://i.pinimg.com/236x/7e/ac/5c/7eac5cfaff5d5eead71b43c3811465e8.jpg")
                 .vaccinated(true)
                 .build());
         vaccine = vaccinatedRepository.save((Vaccine.builder()
@@ -214,7 +214,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("Admin")
                 .lastname("isDabest")
                 .email("admin@admin.com")
-                .image("https://visualpharm.com/assets/381/Admin-595b40b65ba036ed117d3b23.svg")
+                .image("https://th.bing.com/th/id/OIP.TnPDLd_LQS8FBzu_kGIUUwHaHa?pid=ImgDet&rs=1")
                 .age("99")
                 .hometown("Heaven")
                 .enabled(true)
@@ -226,7 +226,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname("Dr.Smith")
                 .lastname("Smith")
                 .email("smith@doctor.com")
-                .image("https://www.thonburibamrungmuang.com/images/upload/editor/source/Doctor/m-doctor-360x215-011.jpg")
+                .image("https://i.pinimg.com/736x/38/17/7d/38177db42101d8127effc62fca70c77e.jpg")
                 .age("1000")
                 .hometown("Hospital")
                 .enabled(true)
@@ -240,7 +240,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .email("Afar@doctor.com")
                 .age("1000")
                 .hometown("Hospital")
-                .image("https://www.thonburibamrungmuang.com/images/upload/editor/source/Doctor/m-doctor-360x215-011.jpg")
+                .image("https://i.pinimg.com/originals/d0/01/01/d00101e76c5b63567dc7e22a970bfe08.jpg")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -252,7 +252,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .email("user3@user.com")
                 .age("23")
                 .hometown("Lynchburg")
-                .image("https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80")
+                .image("https://i.pinimg.com/originals/e8/c4/88/e8c488b26106373c5e53ba18c455b00e.png")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -264,7 +264,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .email("user4@user.com")
                 .age("18")
                 .hometown("Lebanon")
-                .image("https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80")
+                .image("https://i.ytimg.com/vi/mn_PqjntMcU/maxresdefault.jpg")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -276,7 +276,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .email("user3@user.com")
                 .age("20")
                 .hometown("Fairmont")
-                .image("https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80")
+                .image("https://i.kym-cdn.com/entries/icons/original/000/018/743/maxresdefault.jpg")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -288,7 +288,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .email("user4@user.com")
                 .age("25")
                 .hometown("Collegeville")
-                .image("https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80")
+                .image("https://i.pinimg.com/originals/58/6c/cb/586ccb38c0aa9e53fe37a8f6dec8ff9e.jpg")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -300,7 +300,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .email("user5@user.com")
                 .age("22")
                 .hometown("Woburn")
-                .image("https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80")
+                .image("https://i.pinimg.com/originals/13/73/ec/1373ec04a62741cf6b1b29d172528242.jpg")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
