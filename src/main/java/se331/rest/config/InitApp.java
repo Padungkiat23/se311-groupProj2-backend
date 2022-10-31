@@ -74,7 +74,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         Vaccine vaccine = null;
         People tempPeople = null;
-
+        //people no 1
         tempPeople = peopleRepository.save(People.builder()
                 .name("Kiki")
                 .surname("Eazyi")
@@ -90,6 +90,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .name("Pfizer").date("March 1, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
 
+            doc1.getOwnPeople().add(tempPeople);
+            tempPeople.setDoctor(doc1);
+        //people no 2
         tempPeople = peopleRepository.save(People.builder()
                 .name("Payrai")
                 .surname("Najar")
@@ -98,13 +101,16 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
+        vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("Moderna").date("January 14, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
+        tempPeople.getVaccines().add(vaccine);
+        vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("Moderna").date("March 14, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
+        tempPeople.getVaccines().add(vaccine);
+        doc1.getOwnPeople().add(tempPeople);
+        tempPeople.setDoctor(doc1);
 
+        //people no 3
         tempPeople = peopleRepository.save(People.builder()
                 .name("Vasaz")
                 .surname("Gizar")
@@ -113,13 +119,16 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
+        vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("AstraZeneca").date("January 14, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
-            vaccine = vaccinatedRepository.save((Vaccine.builder()
+        tempPeople.getVaccines().add(vaccine);
+        vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("AstraZeneca").date("March 14, 2021").build()));
-            tempPeople.getVaccines().add(vaccine);
+        tempPeople.getVaccines().add(vaccine);
+        doc1.getOwnPeople().add(tempPeople);
+        tempPeople.setDoctor(doc1);
 
+        //people no 4
         tempPeople = peopleRepository.save(People.builder()
                 .name("Vance")
                 .surname("Bijou")
@@ -134,7 +143,10 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("AstraZeneca").date("March 14, 2021").build()));
         tempPeople.getVaccines().add(vaccine);
+        doc2.getOwnPeople().add(tempPeople);
+        tempPeople.setDoctor(doc2);
 
+        //people no 5
         tempPeople = peopleRepository.save(People.builder()
                 .name("Zafar")
                 .surname("Matilda")
@@ -149,6 +161,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("AstraZeneca").date("March 14, 2021").build()));
         tempPeople.getVaccines().add(vaccine);
+        doc2.getOwnPeople().add(tempPeople);
+        tempPeople.setDoctor(doc2);
 
     }
         // Authority configuration

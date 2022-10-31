@@ -15,5 +15,10 @@ import java.util.List;
 public class DoctorOwnPeopleDTO {
     Long id;
     String name;
-    List<Participant> participants;
+    String surname;
+    Long age;
+    String hometown;
+    Boolean vaccinated;
+    String imgUrls;
+    List< PeopleVaccineDTO > vaccines ;
 }

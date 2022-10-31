@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import se331.rest.entity.Doctor;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class PeopleDTO {
     Long age;
     String hometown;
     String imgUrls;
+    DoctorDTO doctor;
 
     List< PeopleVaccineDTO > vaccines ;
     Boolean vaccinated;
