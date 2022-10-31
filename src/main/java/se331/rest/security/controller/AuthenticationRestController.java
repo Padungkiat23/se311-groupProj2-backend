@@ -121,11 +121,11 @@ public class AuthenticationRestController {
         newuser.getAuthorities().add(authAdmin);
         userRepository.save(newuser);
 
-        Doctor doctor = Doctor.builder().name(newuser.getUsername()).build();
-        doctorRepository.save(doctor);
-
-        doctor.setUser(newuser);
-        newuser.setDoctor(doctor);
+//        Doctor doctor = Doctor.builder().name(newuser.getUsername()).build();
+//        doctorRepository.save(doctor);
+//
+//        doctor.setUser(newuser);
+//        newuser.setDoctor(doctor);
 
         userService.save(newuser);
         return ResponseEntity.ok(LabMapper.INSTANCE.getUserDTO(user));
