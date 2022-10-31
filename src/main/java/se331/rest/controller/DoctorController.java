@@ -40,6 +40,10 @@ public class DoctorController {
 
 
     }
+    @GetMapping("/doctors")
+    ResponseEntity<?> getDoctors() {
+        return ResponseEntity.ok(LabMapper.INSTANCE.getDoctorDto(doctorService.getAllDoctor()));
+    }
 
     @GetMapping("doctor/{id}")
     public ResponseEntity<?> getDoctor(@PathVariable("id") Long id) {
