@@ -1,7 +1,4 @@
 spring:
-  profiles:
-    active:
-      - db
   datasource:
     url: jdbc:mysql://db:3306/selabdb?createDatabaseIfNotExist=true&autoReconnect=true
       &characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&useUnicode=true&
@@ -15,11 +12,3 @@ spring:
   servlet:
     multipart:
       max-file-size: 10MB
-jwt:
-  header: Authorization
-  secret: "t6w9z$C&F)J@NcRfUjXn2r5u7x!A%D*G-KaPdSgVkYp3s6v9y/B?E(H+MbQeThWm"
-  expiration: 604800
-  route:
-    authentication:
-      path: auth
-      refresh: refresh
