@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommentDTO {
+public class DoctorCommentDTO {
     Long id;
-    String comment;
-    DoctorCommentDTO doctorCommentDTO;
+    String name;
+    String email;
+    String image;
 }

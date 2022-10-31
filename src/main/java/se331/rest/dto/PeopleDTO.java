@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import se331.rest.entity.Comment;
 import se331.rest.entity.Doctor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -23,6 +25,7 @@ public class PeopleDTO {
 
     List< PeopleVaccineDTO > vaccines ;
     Boolean vaccinated;
+    List<Comment> commentList;
 
 }
 

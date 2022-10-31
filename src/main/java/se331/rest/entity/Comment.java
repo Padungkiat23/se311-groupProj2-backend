@@ -1,6 +1,7 @@
 package se331.rest.entity;
 
 import lombok.*;
+import se331.rest.dto.DoctorCommentDTO;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,8 +18,5 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Exclude
     Long id;
-    String doc_name;
-    String peo_name;
     String comment;
-    String date;
 }

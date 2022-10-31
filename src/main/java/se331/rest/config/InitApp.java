@@ -6,14 +6,8 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import se331.rest.entity.Admin;
-import se331.rest.entity.Doctor;
-import se331.rest.entity.People;
-import se331.rest.entity.Vaccine;
-import se331.rest.repository.AdminRepository;
-import se331.rest.repository.DoctorRepository;
-import se331.rest.repository.PeopleRepository;
-import se331.rest.repository.VaccinatedRepository;
+import se331.rest.entity.*;
+import se331.rest.repository.*;
 import se331.rest.security.entity.Authority;
 import se331.rest.security.entity.AuthorityName;
 import se331.rest.security.entity.User;
@@ -39,6 +33,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     DoctorRepository doctorRepository;
     @Autowired
     AdminRepository adminRepository;
+    @Autowired
+    CommentRepository commentRepository;
+
 
     @Override
     @Transactional
@@ -71,6 +68,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
         doc2.setUser(doctor2);
         doctor2.setDoctor(doc2);
+        Comment comment = null;
 
         Vaccine vaccine = null;
         People tempPeople = null;
@@ -83,6 +81,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
+
             vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("Pfizer").date("January 1, 2021").build()));
             tempPeople.getVaccines().add(vaccine);
@@ -92,10 +91,15 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
             doc1.getOwnPeople().add(tempPeople);
             tempPeople.setDoctor(doc1);
-        tempPeople.setUser(user1);
-        user1.setPeople(tempPeople);
 
-        //people no 2
+            comment = commentRepository.save(Comment.builder()
+                .comment("I am a fighter")
+                .build());
+            tempPeople.getCommentList().add(comment);
+            tempPeople.setUser(user1);
+            user1.setPeople(tempPeople);
+
+            // user no 2
         tempPeople = peopleRepository.save(People.builder()
                 .name("Payrai")
                 .surname("Najar")
@@ -104,18 +108,24 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
-        vaccine = vaccinatedRepository.save((Vaccine.builder()
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+
                 .name("Moderna").date("January 14, 2021").build()));
         tempPeople.getVaccines().add(vaccine);
         vaccine = vaccinatedRepository.save((Vaccine.builder()
                 .name("Moderna").date("March 14, 2021").build()));
+
         tempPeople.getVaccines().add(vaccine);
         doc1.getOwnPeople().add(tempPeople);
         tempPeople.setDoctor(doc1);
+        comment = commentRepository.save(Comment.builder()
+                .comment("Beauty Skin")
+                .build());
+        tempPeople.getCommentList().add(comment);
         tempPeople.setUser(user2);
         user2.setPeople(tempPeople);
 
-        //people no 3
+        // user no 3
         tempPeople = peopleRepository.save(People.builder()
                 .name("Vasaz")
                 .surname("Gizar")
@@ -132,26 +142,34 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempPeople.getVaccines().add(vaccine);
         doc1.getOwnPeople().add(tempPeople);
         tempPeople.setDoctor(doc1);
+        comment = commentRepository.save(Comment.builder()
+                .comment("Oh lar")
+                .build());
+        tempPeople.getCommentList().add(comment);
         tempPeople.setUser(user3);
         user3.setPeople(tempPeople);
 
-        //people no 4
+        // user no 4
         tempPeople = peopleRepository.save(People.builder()
-                .name("Vance")
-                .surname("Bijou")
-                .age(26L)
-                .hometown("Williamstown")
+                .name("Zed")
+                .surname("Shadow")
+                .age(25L)
+                .hometown("Bearer Iron")
                 .imgUrls("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
                 .vaccinated(true)
                 .build());
-        vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("AstraZeneca").date("January 14, 2021").build()));
-        tempPeople.getVaccines().add(vaccine);
-        vaccine = vaccinatedRepository.save((Vaccine.builder()
-                .name("AstraZeneca").date("March 14, 2021").build()));
-        tempPeople.getVaccines().add(vaccine);
-        doc2.getOwnPeople().add(tempPeople);
-        tempPeople.setDoctor(doc2);
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Pfizer").date("February 7, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
+            vaccine = vaccinatedRepository.save((Vaccine.builder()
+                .name("Moderna").date("May 7, 2021").build()));
+            tempPeople.getVaccines().add(vaccine);
+        doc1.getOwnPeople().add(tempPeople);
+        tempPeople.setDoctor(doc1);
+        comment = commentRepository.save(Comment.builder()
+                .comment("Oh ayeeeee")
+                .build());
+        tempPeople.getCommentList().add(comment);
         tempPeople.setUser(user4);
         user4.setPeople(tempPeople);
 
@@ -172,8 +190,13 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempPeople.getVaccines().add(vaccine);
         doc2.getOwnPeople().add(tempPeople);
         tempPeople.setDoctor(doc2);
+        comment = commentRepository.save(Comment.builder()
+                .comment("Oh dazeee lar")
+                .build());
+        tempPeople.getCommentList().add(comment);
         tempPeople.setUser(user5);
         user5.setPeople(tempPeople);
+
 
     }
         // Authority configuration
