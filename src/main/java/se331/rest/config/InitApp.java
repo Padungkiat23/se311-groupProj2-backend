@@ -185,7 +185,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         Authority authDoctor = Authority.builder().name(AuthorityName.ROLE_DOCTOR).build();
         Authority authUser = Authority.builder().name(AuthorityName.ROLE_USER).build();
         Authority authAdmin = Authority.builder().name(AuthorityName.ROLE_ADMIN).build();
-        Authority authPeople = Authority.builder().name(AuthorityName.ROLE_PEOPLE).build();
         admin = User.builder()
                 .username("admin")
                 .password(encoder.encode("admin"))
@@ -289,11 +288,11 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         admin.getAuthorities().add(authAdmin);
         doctor.getAuthorities().add(authDoctor);
         doctor2.getAuthorities().add(authDoctor);
-        user1.getAuthorities().add(authPeople);
-        user2.getAuthorities().add(authPeople);
-        user3.getAuthorities().add(authPeople);
-        user4.getAuthorities().add(authPeople);
-        user5.getAuthorities().add(authPeople);
+        user1.getAuthorities().add(authUser);
+        user2.getAuthorities().add(authUser);
+        user3.getAuthorities().add(authUser);
+        user4.getAuthorities().add(authUser);
+        user5.getAuthorities().add(authUser);
         userRepository.save(admin);
         userRepository.save(doctor);
         userRepository.save(doctor2);
