@@ -20,4 +20,5 @@ public class DoctorOwnPeopleDTO {
     String hometown;
     Boolean vaccinated;
     String imgUrls;
+    List< PeopleVaccineDTO > vaccines ;
 }
