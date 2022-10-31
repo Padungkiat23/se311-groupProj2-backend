@@ -64,7 +64,7 @@ jobs:
 
           push: true
 
-          tags: padungkiat/331-securitylab:latest
+          tags: padungkiat/331-project-backend:latest
 
       - name: prepare the docker-compose run
 
