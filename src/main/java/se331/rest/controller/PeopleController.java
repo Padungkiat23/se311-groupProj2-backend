@@ -55,6 +55,15 @@ public class PeopleController {
         People output = peopleService.save(people);
         return ResponseEntity.ok(LabMapper.INSTANCE.getPeopleDto(output));
     }
+    @GetMapping("people/{id}/comment")
+    public ResponseEntity<?> getPeopleComment(@PathVariable("id") Long id) {
+        People output = peopleService.getPeople(id);
+        if (output != null) {
+            return ResponseEntity.ok(LabMapper.INSTANCE.getCommentDto(output.getCommentList()));
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The given id is not found");
+        }
+    }
 
 }
 

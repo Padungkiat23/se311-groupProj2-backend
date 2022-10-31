@@ -14,6 +14,8 @@ import se331.rest.entity.People;
 import se331.rest.service.DoctorService;
 import se331.rest.util.LabMapper;
 
+import java.util.List;
+
 @Controller
 public class DoctorController {
     @Autowired
@@ -53,6 +55,13 @@ public class DoctorController {
     public ResponseEntity<?> addDoctor(@RequestBody Doctor doctor) {
         Doctor output = doctorService.save(doctor);
         return ResponseEntity.ok(LabMapper.INSTANCE.getDoctorDto(output));
+    }
+
+    @GetMapping("/doctor/{id}/people")
+    public ResponseEntity<?> getDoctorPatient(@PathVariable("id") Long id) {
+        Doctor doctor = doctorService.getDoctor(id);
+        List<People> peopleList = doctor.getOwnPeople();
+        return ResponseEntity.ok(LabMapper.INSTANCE.getPeopleDto(peopleList));
     }
 }
 
