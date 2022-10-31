@@ -94,8 +94,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
             tempPeople.getVaccines().add(vaccine);
             tempPeople.setUser(user3);
                 user3.setPeople(tempPeople);
-                doc1.setOwnPeople((List<People>) tempPeople);
-                tempPeople.setDoctor(doc1);
 
 
         tempPeople = peopleRepository.save(People.builder()
